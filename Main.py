@@ -17,8 +17,8 @@ print("There is a curved stairway that leads you to a stone walkway. There are s
 print("You walk around the edge of the rounded elevator walls and you find a \x1B[3chest\x1B[0m")
 #up the buttresses
 print("You find a missing link in the small gaurd rails that allows you to climb the buttress. When you reach the top there is a broken window")
-
-
+#ceiling walkway
+print("You step into the building and find that there are wooden rafters leading to a chandelier. when you reach the end of the rafters there are stairs that lead down to the east.")
 
 
 
