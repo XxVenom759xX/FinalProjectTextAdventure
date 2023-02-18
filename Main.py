@@ -8,7 +8,7 @@ print("The building is tall and has arches for doorways. Inside the room you see
 #second open platform
 print("You exit the building and step out to another open platform, this one much larger than the last. To the south there is a doorway leading into a building. To the north there is a round building that appears to lead downwards.")
 #down the stairway near the second platform
-print(f"You go down the stairs and see a \x1B[3mbonfire\x1B[0m and, leaning against a wall opposite you, you see a \x1B[3mFirebearer\x1B[0m")
+print("You go down the stairs and see a \x1B[3mbonfire\x1B[0m and, leaning against a wall opposite you, you see a \x1B[3mFirebearer\x1B[0m")
 #the first elevator
 print("You go to the round building and see that when you step inside there is an elevator that leads downwards.")
 #first main second floor platform
@@ -45,3 +45,8 @@ print("When you walk up the stairs you see a magnificent lancet stained glass wi
 print("You found a chest while walking just outside the lancet window")
 #the boss fight(If they do not have the sword and shield then they will die and spawn at the last bonfire they visited)
 print("You step into the fog and see steps leading upwards. When you walk up you see two fighters: Dragon Slayer Ornstein and Executioner Smough. They are standing at the back of a battle worn area and the columns holding up this ceiling are close to crumbling.")
+#after you kill ornstein and smough
+print("When you get the final slash on the two great foes a fog behind where they were first seen disapears leading to a staircase.")
+#meeting the princess of sunlight.
+print("You walk up the stairs and see the Princess of Sun, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
+
