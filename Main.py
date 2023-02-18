@@ -18,14 +18,30 @@ print("You walk around the edge of the rounded elevator walls and you find a \x1
 #up the buttresses
 print("You find a missing link in the small gaurd rails that allows you to climb the buttress. When you reach the top there is a broken window")
 #ceiling walkway
-print("You step into the building and find that there are wooden rafters leading to a chandelier. when you reach the end of the rafters there are stairs that lead down to the east.")
-
-
-
-
-
-
-
-
-
-
+print("You step into the building and find that there are wooden rafters leading to a chandelier. The building is made of a white marble. When you reach the end of the rafters there are stairs that lead down to the east.")
+#outside the painted room
+print("You step out off the rafters and see a \x1B[3lever\x1B[0m to the north.")
+#path to the main elevator
+print("You step onto the large elevator and see that there is a spiral staircase leading down. There is the door to the west leading into the marbel room rafters, and there is a path leading south.")
+#bottom of the large elevator
+print("You reach the bottom floor of the elevator and pathway leading north and a pathway leading to the marble building bottom floor")
+#bottom floor of painted room
+print("You go into the bottom floor of the building and there are many soldiers in white robes standing around the room. They all have throwing knives at the ready to protect something.")
+#lowest floor plathway to bonfire
+print("The pathway leads to an open door and you can see something inside.")
+#bonfire room
+print("There is a dark room with a bonfire in the center")
+#top of large elevator to the south
+print("You are on a pathway with a \x1B[3lever\x1B[0m. You can see the other path you were on before to the south.")
+#north pathway when the lever in the large elevator is pulled
+print("You walk onto another pathway going north. There are steps going upward towards the large cathedral")
+#doorway in front of the cathedral
+print("There are another two large black knights to your left and right. to the north the large door to the cathedral.") 
+#inside the doorway
+print("When you walk into the cathedral it is lit by candle light. There are large cloumns leading up to the ceilings that are about forty feet tall. The walls are made of red stone and marble. To the north you can see large staircases to either side.")
+#up the cathedral stairs
+print("When you walk up the stairs you see a magnificent lancet stained glass window. One panel of the window is shattered.")
+#outside the cathedral window
+print("You found a chest while walking just outside the lancet window")
+#the boss fight(If they do not have the sword and shield then they will die and spawn at the last bonfire they visited)
+print("You step into the fog and see steps leading upwards. When you walk up you see two fighters: Dragon Slayer Ornstein and Executioner Smough. They are standing at the back of a battle worn area and the columns holding up this ceiling are close to crumbling.")
