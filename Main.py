@@ -52,15 +52,9 @@ def main():
 	#meeting the princess of sunlight.
 	print("You walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
 
-	inventory = [
-		Leather armour,
-		Iron Sword]
-	chest1 = [
-		Black Iron Sword]
-	chest2 = [
-		Grass Crest Shield]
-	chest3 = [
-		Fine Iron Armour]
+	inventory = [Leather_armour, Iron_Sword]
+	chest1 = [Black_Iron_Sword]
+	chest2 = [Grass_Crest_Shield]
+	chest3 = [Fine_Iron_Armour]
 
-	if pinput = north:
-		
+	
