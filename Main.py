@@ -72,14 +72,14 @@ def main():
 		if player_input == "north" and player_position == platform111:
 			player_position = platform212
 			print(f"{player_position}")
-		else:
-			print("That is not a direction or action you can do.")
-
-		if player_input == "south" and player_position == platform212:
+		elif player_input == "south" and player_position == platform212:
 			player_position = platform211
 			print(f"{player_position}")
 		elif player_input == "north" and player_position == platform212:
 			player_position = platform111
+			print(f"{player_position}")
+		elif player_input == "west" and player_position == platform211:
+			player_position = platform222
 			print(f"{player_position}")
 		else:
 			print("That is not a direction or action you can do.")
