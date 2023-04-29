@@ -2,9 +2,9 @@
 #first description
 def main():
 	print("Before playing, make sure the terminal is full screen and cleared\n")
-	pinput = input("Have you full screened and cleared the termianl?\n")
-	if pinput == "yes":
-		print("""
+	#pinput = input("Have you full screened and cleared the termianl?\n")
+	#if pinput == "yes":
+	print("""
 
 ▓█████▄  ▄▄▄       ██▀███   ██ ▄█▀     ██████  ▒█████   █    ██  ██▓      ██████    ▄▄▄█████▓▓█████ ▒██   ██▒▄▄▄█████▓   ▓█████ ▓█████▄  ██▓▄▄▄█████▓ ██▓ ▒█████   ███▄    █ 
 ▒██▀ ██▌▒████▄    ▓██ ▒ ██▒ ██▄█▒    ▒██    ▒ ▒██▒  ██▒ ██  ▓██▒▓██▒    ▒██    ▒    ▓  ██▒ ▓▒▓█   ▀ ▒▒ █ █ ▒░▓  ██▒ ▓▒   ▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ 
@@ -40,11 +40,12 @@ def main():
 	ending2 = False
 	bonfire_respawn_positioning = ""
 	chandelierFallen = False
+	fakewall = False
 	#laying out print variables labled by their height, then distance based on the amount of rooms after the first platform
 	platform111 = ("You wake up on a small platform of complex tiles with guard rails made of marble on all sides except north. The world is a yellow-ish red color and the sun is blaring on you. In the distance there is a forrest full of fall leaves and to the north-west you see a large catherdral of red stone. You are wearing blackened leather armour, but you can tell it won't last long, and you are holding a broken iron sword")
 	platform212 = ("You head towards the north and see a staircase going downwards and to the left hanging along the side of a building made of the same red stone. When you reach the bottom of the staircase you see a giant Knight dressed in black iron armour. The walkway ends where the Knight is standing and there is a door to the south that leads into a room.")
 	platform211 = ("The building is tall and has arches for doorways. Inside the room you see a pair of the giant Knights across the room from each other. There is a \x1B[3mchest\x1B[0m that the two are gaurding. To the West you see an exit to the building")
-	platform222 = ("You exit the building and step out to another open platform, this one much larger than the last. To the south there is a doorway leading into a building. To the north there is a round building that appears to lead downwards.To the east is the covered building")
+	platform222 = ("You exit the building and step out to another open platform, this one much larger than the last. To the south there is a doorway leading into a building. To the north there is a round building that appears to lead downwards. To the east is the covered building")
 	platform221 = ("You go down the stairs and see a \033[1;31;40m\x1B[3mbonfire\x1B[0m and, leaning against a wall opposite you, you see a \033[1;31;40m\x1B[3mFirebearer\x1B[0m")
 	platform223 = ("You go to the round building and see that when you step inside there is an elevator that leads downwards.")
 	platform310s = ("You step inside the building and there is an elevator that goes up after curved stairways lead to the elevator floor")
@@ -57,7 +58,7 @@ def main():
 	platform224 = ("You step onto the large elevator and see that there is a spiral staircase leading down. There is the door to the west leading into the marbel room rafters, and there is a path leading south.")
 	platform411 = ("You reach the bottom floor of the elevator and pathway leading north and a pathway leading to the marble building bottom floor")
 	platform333 = ("You go into the bottom floor of the building and there are many soldiers in white robes standing around the room. They all have throwing knives at the ready to protect something.")
-	platform412 = ("The pathway leads to an open door and you can see something inside.")
+	platform412 = ("The pathway leads to a dead end with a wall in front of you.")
 	platform413 = ("There is a dark room with a bonfire in the center")
 	platform314 = ("You are on a pathway with a \x1B[3mlever\x1B[0m. You can see the other path you were on before to the south.")
 	platform225 = ("You walk onto another pathway going north. There are steps going upward towards the large cathedral. To the left of you there is a \x1B[3mlever\x1B[0m")
@@ -82,7 +83,7 @@ def main():
 		elif player_input == "south" and player_position == platform212:
 			player_position = platform211
 			print(f"{player_position}")
-		elif player_input == "north" and player_position == platform212:
+		elif player_input == "east" and player_position == platform212:
 			player_position = platform111
 			print(f"{player_position}")
 		elif player_input == "west" and player_position == platform211:
@@ -115,13 +116,16 @@ def main():
 		elif player_input == "north" and player_position == platform222:
 			player_position = platform223
 			print(f"{player_position}")
+		elif player_input == "south" and player_position == platform223:
+			player_position = platform222
+			print(f"{player_position}")
 		elif player_input == "down" and player_position == platform223:
 			player_position = platform310s
 			print(f"{player_position}")
 		elif player_input == "north" and player_position == platform310s:
 			player_position = platform311
 			print(f"{player_position}")
-		elif player_input == "south" and player_position == platform310:
+		elif player_input == "south" and player_position == platform311:
 			player_position = platform310s
 			print(f"{player_position}")
 		elif player_input == "east" and player_position == platform311:
@@ -142,17 +146,60 @@ def main():
 		elif player_input == "north" and player_position == platform231:
 			player_position = platform232
 			print(f"{player_position}")
-		elif player_input == "swing" and player_position == platform232:
-			print(f"You swing and hit the crumbling chain holding the chandelier, and it drops to the gorund crushing many foes beneath it.")
+		elif player_input == "swing" and player_position == platform232 and chest1 in inventory:
+			print(f"You swing and hit the brittle chain holding the chandelier, and it drops to the gorund crushing many foes beneath it.")
 			chandelierFallen = True
 		elif player_input == "north" and player_position == platform232:
 			player_position = platform233
 			print(f"{player_position}")
-		elif player_input == "pull" and elevator_position = 1 and player_position == platform233
+		#elevator positioning
+		elif player_input == "pull" and elevator_position == 1 and player_position == platform233:
 			elevator_position = 2
-		elif player_input == "pull" and elevator_position = 2 and player_position == platform233
+		elif player_input == "pull" and elevator_position == 2 and player_position == platform233:
 			elevator_position = 1
-		elif player_input == "pull" and elevator_position = 1 and player_position == platform
+		elif player_input == "pull" and elevator_position == 1 and player_position == platform224:
+			elevator_position == 2
+		elif player_input == "pull" and elevator_position == 2 and player_position == platform224:
+			elevator_position == 1
+		elif player_input == "east" and player_position == platform233:
+			player_position = platform224
+			print(f"{player_position}")
+		elif player_input == "down" and player_position == platform224:
+			player_position = platform411
+			print(f"{player_position}")
+			#make sure that the player cannot see the fog wall before and can after swinging
+		elif player_input == "north" and player_position == platform411 and fakewall == True:
+			print("You can see an arched doorway to the north.")
+			player_position = platform412
+		elif player_input == "north" and player_position == platform411 and fakewall == False:
+			print("The pathway leads to a dead end.")
+			player_position = platform412
+		elif player_input == "south" and player_position == platform412:
+			player_position = platform411
+			print(f"{player_position}")
+		elif player_input == "swing" and player_position == platform412 and chest1 in inventory:
+			print("You swing at the wall and the wall turns to fog and disappears, an arched door is left in its place")
+			fakewall = True
+		elif player_input == "north" and player_position == platform412:
+			player_position = platform413
+			print(f"{player_position}")
+		elif player_input == "light" and player_position == platform413:
+			print("""
+			
+▄▄▄▄·        ▐ ▄ ·▄▄▄▪  ▄▄▄  ▄▄▄ .    ▄▄▌  ▪  ▄▄▄▄▄
+▐█ ▀█▪▪     •█▌▐█▐▄▄·██ ▀▄ █·▀▄.▀·    ██•  ██ •██  
+▐█▀▀█▄ ▄█▀▄ ▐█▐▐▌██▪ ▐█·▐▀▀▄ ▐▀▀▪▄    ██▪  ▐█· ▐█.▪
+██▄▪▐█▐█▌.▐▌██▐█▌██▌.▐█▌▐█•█▌▐█▄▄▌    ▐█▌▐▌▐█▌ ▐█▌·
+·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
+
+			""")
+		#elif player_input == "save" and player_position == platform413:
+			#save here
+		elif player_input == "south" and player_position == platform413:
+			player_position = platform412
+			print(f"{player_position}")
+	
+
 
 
 
