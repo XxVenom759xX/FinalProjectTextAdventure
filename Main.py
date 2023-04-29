@@ -15,11 +15,11 @@ def main():
  ░                                                                                                                               ░                                           
 
 	""")
+	canLightBonfires = False
 	inventory = ["Leather_armour", "Iron_Sword"]
 	chest1 = ["Black_Iron_Sword"]
 	chest2 = ["Grass_Crest_Shield"]
 	chest3 = ["Fine_Iron_Armour"]
-	q = ""
 	north = ""
 	south = ""
 	east = ""
@@ -38,9 +38,9 @@ def main():
 	#laying out print variables labled by their height, then distance based on the amount of rooms after the first platform
 	platform111 = ("You wake up on a small platform of complex tiles with guard rails made of marble on all sides except north. The world is a yellow-ish red color and the sun is blaring on you. In the distance there is a forrest full of fall leaves and to the north-west you see a large catherdral of red stone. You are wearing blackened leather armour, but you can tell it won't last long.")
 	platform212 = ("You head towards the north and see a staircase going downwards and to the left hanging along the side of a building made of the same red stone. When you reach the bottom of the staircase you see a giant Knight dressed in black iron armour. The walkway ends where the Knight is standing and there is a door to the south that leads into a room.")
-	platform211 = ("The building is tall and has arches for doorways. Inside the room you see a pair of the giant Knights across the room from each other. There is a chest that the two are gaurding. To the West you see an exit to the building")
-	platform222 = ("You exit the building and step out to another open platform, this one much larger than the last. To the south there is a doorway leading into a building. To the north there is a round building that appears to lead downwards.")
-	platform221 = ("You go down the stairs and see a \x1B[3mbonfire\x1B[0m and, leaning against a wall opposite you, you see a \x1B[3mFirebearer\x1B[0m")
+	platform211 = ("The building is tall and has arches for doorways. Inside the room you see a pair of the giant Knights across the room from each other. There is a \x1B[3chest\x1B[0m that the two are gaurding. To the West you see an exit to the building")
+	platform222 = ("You exit the building and step out to another open platform, this one much larger than the last. To the south there is a doorway leading into a building. To the north there is a round building that appears to lead downwards.To the east is the covered building")
+	platform221 = ("You go down the stairs and see a \033[1;31;40m\x1B[3mbonfire\x1B[0m and, leaning against a wall opposite you, you see a \033[1;31;40m\x1B[3mFirebearer\x1B[0m")
 	platform223 = ("You go to the round building and see that when you step inside there is an elevator that leads downwards.")
 	platform311 = ("There is a curved stairway that leads you to a stone walkway. There are small, spiked gaurd rails lining the path to the elevator that only go up to your ankles. You can see a small ledge around the round elevator entrance and you can see another elecator to the north. To the west there are buttresses that lead to another building with multiple levels inside.")
 	platform310 = ("You walk around the edge of the rounded elevator walls and you find a \x1B[3chest\x1B[0m")
@@ -63,6 +63,7 @@ def main():
 	platform123 = ("When you get the final slash on the two great foes a fog behind where they were first seen disapears, leading to a staircase.")
 	platform000 = ("You walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
 
+	player_name = input("What is your name?\n")
 	player_position = platform111
 	print(f"{player_position}")
 	player_input = ""
@@ -81,23 +82,52 @@ def main():
 		elif player_input == "west" and player_position == platform211:
 			player_position = platform222
 			print(f"{player_position}")
+		elif player_input == "south" and player_position == platform222:
+			player_position = platform221
+			print(f"{player_position}")
+		elif player_input == "talk" and player_position == platform221:
+			print(f"You are that chosen undead everyone is talking about, what was the name they were calling you, {player_name}, yes? Do you see that \033[1;31;40m\x1B[3mbonfire\x1B[0m over there? you can light them with this and save \x1B[3myour progress\x1B[0m.")
+			canLightBonfires = True
+		elif player_input == "light" and player_position == platform221:
+			print("""
+			
+▄▄▄▄·        ▐ ▄ ·▄▄▄▪  ▄▄▄  ▄▄▄ .    ▄▄▌  ▪  ▄▄▄▄▄
+▐█ ▀█▪▪     •█▌▐█▐▄▄·██ ▀▄ █·▀▄.▀·    ██•  ██ •██  
+▐█▀▀█▄ ▄█▀▄ ▐█▐▐▌██▪ ▐█·▐▀▀▄ ▐▀▀▪▄    ██▪  ▐█· ▐█.▪
+██▄▪▐█▐█▌.▐▌██▐█▌██▌.▐█▌▐█•█▌▐█▄▄▌    ▐█▌▐▌▐█▌ ▐█▌·
+·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
+
+			""")
+		#elif player_input == "save" and player_position == platform221:
+			#add in save function here
+		elif player_input == "north" and player_position == platform221:
+			player_position = platform222
+			print(f"{player_position}")
+		elif player_input == "east" and player_position == platform222:
+			player_position = platform212
+			print(f"{player_position}")
+		elif player_input == "north" and player_position == platform222:
+			player_position = 223
+			print(f"{player_position}")
+		elif player_input == "down" and player_position == platform223;
+			print
 		else:
 			print("That is not a direction you can go or action you can do.")
 
 	
 	
 #for later
-
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+#
+#▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+# ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+#  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+#  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+#  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+#   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+# ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+# ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+# ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+# ░ ░                           ░                  ░      
 
 
 if __name__ == "__main__":
