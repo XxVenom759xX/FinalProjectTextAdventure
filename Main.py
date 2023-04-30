@@ -108,7 +108,7 @@ def main():
  ░ ░                           ░                  ░      """)
 			if bonfire1 == True:
 				player_position = platform221
-				print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m")
+				print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m.")
 			elif bonfire2 == True:
 				player_position = platform413
 				print("You wake up in the dark room with the bonfire.")
@@ -126,11 +126,17 @@ def main():
 		elif player_input == "south" and player_position == platform212:
 			player_position = platform211
 			print(f"{player_position}")
+		elif player_input == "south" and player_position == platform212 and BK2 == False and BK3 == False:
+			player_position = platform211
+			print("There is an exit to the north and west.")
+		elif player_input == east and player_position == platform222 and BK2 == False and BK3 == False:
+			player_position = platform211
+			print("There is an exit to the north and west.")
 		elif player_input == "north" and player_position == platform211:
 			player_position = platform212
 			print(f"{player_position}")
 		elif player_input == "swing" and player_position == platform211 and chest1 in inventory and BK2 == True and BK3 == True:
-			print("You swing and kill the two black knights")
+			print("You swing and kill the two black knights.")
 			BK2 = False
 			BK3 = False
 			player_position = platform211
