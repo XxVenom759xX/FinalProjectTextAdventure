@@ -97,7 +97,7 @@ def main():
 			print("You swing and kill the Black Knight.")
 			BK1 = False
 			player_position = platform212
-		elif player_input = "present" and player_position == platform111 and chest4 in inventory and ending1 == True and ending2 == True and ending3 == True:
+		elif player_input == "present" and player_position == platform111 and chest4 in inventory and ending1 == True and ending2 == True and ending3 == True:
 			print("You present the undifinable object to the sun and it turns to a doll then disappears.")
 			secret == True
 		elif player_input == "swing" and player_position == platform212 and chest1 not in inventory and BK1 == True:
@@ -217,6 +217,7 @@ def main():
 			""")
 			bonfire1 = True
 		elif player_input == "save" and player_position == platform221:
+			print("Position saved.")
 			bonfire_save = 1
 		elif player_input == "north" and player_position == platform221:
 			player_position = platform222
@@ -348,6 +349,7 @@ def main():
 			""")
 		elif player_input == "save" and player_position == platform413:
 			bonfire_save = 0
+			print("Position saved")
 		elif player_input == "south" and player_position == platform413:
 			player_position = platform412
 			print(f"{player_position}")
@@ -616,5 +618,6 @@ def main():
 				ending = False
 			else:
 				print("That is not a direction you can go or action you can do.")
+				
 if __name__ == "__main__":
 	main()
