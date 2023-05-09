@@ -83,6 +83,7 @@ def main():
 	platform123 = ("A fog behind where they were first seen disapears, leading to a staircase to the north.")
 	platform000 = ("You walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
 #STARING GAME MATERIAL
+ballz
 	player_name = input("What is your name?\n")
 	player_position = platform111
 	player_input = ""
