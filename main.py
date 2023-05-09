@@ -402,9 +402,18 @@ def main():
 ·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
 
 			""")
-		elif player_input == "save" and player_position == platform413:
-			bonfire_save = 0
-			print("Position saved")
+		elif player_input == "save" and player_position == platform412:
+			print("Position saved, and game data saved.")
+			bonfire_save = 1
+			with open("darksouls.dat", "wb") as file:
+				pickle.dump((canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save), file)
+		
+		elif player_input == "load" and player_position == platform413:
+			print("Position and game data loaded.")
+			with open("darksouls.dat", "rb") as file:
+				loaded_data = pickle.load(file)
+			canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save = loaded_data
+		
 		elif player_input == "south" and player_position == platform413:
 			player_position = platform412
 			print(f"{player_position}")
