@@ -1,4 +1,5 @@
 #Dark Souls
+import pickle
 #first description
 def main():
 	print("Before playing, make sure the terminal is full screen and cleared\n")
@@ -123,29 +124,37 @@ def main():
 			else:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
+		
 		elif player_input == "open" and player_position == platform211 and BK2 == False and BK3 == False:
 			print("You open the chest and find the \x1B[3mGrass Crest Shield\x1B[0m")
 			inventory.append(chest2)
+		
 		elif player_input == "north" and player_position == platform211 and BK1 == False:
 			player_position == platform212
 			print("There is a path to the east leading to the complex tiled platform, and there is a building to the south with a tall arched doorway.")
+		
 		elif player_input == "south" and player_position == platform212:
 			player_position = platform211
 			print(f"{player_position}")
+		
 		elif player_input == "south" and player_position == platform212 and BK2 == False and BK3 == False:
 			player_position = platform211
 			print("There is an exit to the north and west.")
+		
 		elif player_input == east and player_position == platform222 and BK2 == False and BK3 == False:
 			player_position = platform211
 			print("There is an exit to the north and west.")
+		
 		elif player_input == "north" and player_position == platform211:
 			player_position = platform212
 			print(f"{player_position}")
+		
 		elif player_input == "swing" and player_position == platform211 and chest1 in inventory and BK2 == True and BK3 == True:
 			print("You swing and kill the two black knights.")
 			BK2 = False
 			BK3 = False
 			player_position = platform211
+		
 		elif player_input == "swing" and player_position == platform211 and chest1 not in inventory and BK2 == True and BK3 == True:
 			print("You swing but the Black Knights kill you.")
 			print("""
@@ -168,6 +177,7 @@ def main():
 			else:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
+		
 		elif player_input == "open" and player_position == platform211 and chest1 not in inventory and BK2 == True and BK3 == True:
 			print("You go to open the chest but the Black Knights kill you.")
 			print("""
@@ -192,6 +202,7 @@ def main():
 			else:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
+		
 		elif player_input == "open" and player_position == platform211 and chest1 in inventory and BK2 == True and BK3 == True:
 			print("You go to open the chest but the Black Knights kill you.")
 			print("""
@@ -216,18 +227,23 @@ def main():
 			else:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
+		
 		elif player_input == "east" and player_position == platform212 and firstspawn == False:
 			player_position = platform111
 			print(f"You walk up to the platform, The only place to go is north. The sun is blaring on you.")
+		
 		elif player_input == "west" and player_position == platform211:
 			player_position = platform222
 			print(f"{player_position}")
+		
 		elif player_input == "south" and player_position == platform222:
 			player_position = platform221
 			print(f"{player_position}")
+		
 		elif player_input == "talk" and player_position == platform221:
 			print(f"You are that chosen undead everyone is talking about, what was the name they were calling you, {player_name.title()}, yes? Do you see that \033[1;31;40m\x1B[3mbonfire\x1B[0m over there? you can light them with this and  \033[1;31;40m\x1B[3msave your progress\x1B[0m.")
 			canLightBonfires = True
+		
 		elif player_input == "light" and player_position == platform221 and canLightBonfires == True:
 			print("""
 			
@@ -240,17 +256,29 @@ def main():
 			""")
 			bonfire1 = True
 		elif player_input == "save" and player_position == platform221:
-			print("Position saved.")
+			print("Position saved, and game data saved.")
 			bonfire_save = 1
+			with open("darksouls.dat", "wb") as file:
+				pickle.dump((canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save), file)
+		
+		elif player_input == "load" and player_position == platform221:
+			print("Position and game data loaded.")
+			with open("darksouls.dat", "rb") as file:
+				loaded_data = pickle.load(file)
+			canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save = loaded_data
+		
 		elif player_input == "north" and player_position == platform221:
 			player_position = platform222
 			print(f"{player_position}")
+		
 		elif player_input == "east" and player_position == platform222:
 			player_position = platform211
 			print(f"{player_position}")
+		
 		elif player_input == "north" and player_position == platform222:
 			player_position = platform223
 			print(f"{player_position}")
+		
 		elif player_input == "south" and player_position == platform223:
 			player_position = platform222
 			print(f"{player_position}")
@@ -329,12 +357,16 @@ def main():
 		#elevator positioning
 		elif player_input == "pull" and elevator_position == 1 and player_position == platform233:
 			elevator_position = 2
+			print("You pull the lever and the elevator rises by twisting.")
 		elif player_input == "pull" and elevator_position == 2 and player_position == platform233:
 			elevator_position = 1
+			print("You pull the lever and the elevator lowers by twisting.")
 		elif player_input == "pull" and elevator_position == 1 and player_position == platform224:
 			elevator_position == 2
+			print("You pull the lever and the elevator rises by twisting.")
 		elif player_input == "pull" and elevator_position == 2 and player_position == platform224:
 			elevator_position == 1
+			print("You pull the lever and the elevator lowers by twisting.")
 		elif player_input == "east" and player_position == platform233:
 			player_position = platform224
 			print(f"{player_position}")
