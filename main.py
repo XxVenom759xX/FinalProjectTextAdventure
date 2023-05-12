@@ -466,7 +466,7 @@ directions:
 			print("\nYou swing at the wall and the wall turns to fog and dissipates, an arched door is left in its place")
 			fakewall = True
 		
-		elif player_input == "north" and player_position == platform412:
+		elif player_input == "north" and player_position == platform412 and fakewall == False:
 			player_position = platform413
 			print(f"{player_position}")
 		
@@ -629,7 +629,7 @@ directions:
 		elif player_input == "pull" and player_position == platform225 and elevator_position == 1:
 			print("\nYou pull the lever and the elevator rises up.")
 			
-		elif player_input == "north" and player_position == platform225:
+		elif player_input == "north" and player_position == platform225 and BK4 == True and BK5 == True:
 			player_position = platform121
 			print(f"{player_position}")
 		
@@ -690,11 +690,11 @@ directions:
 			print(f"{player_position}")
 		
 		elif player_input == "west" and player_position == platform021:
-			player_position = platform121
+			player_position = platform122
 			print(f"{player_position}")
 		
 		elif player_input == "east" and player_position == platform021:
-			player_position = platform121
+			player_position = platform122
 			print(f"{player_position}")
 		
 		elif player_input == "south" and player_position == platform021:
@@ -740,7 +740,7 @@ directions:
 				print("You wake up on the platform of complex tiles.")
 		
 		elif player_input == "swing" and player_position == platform123 and chest1 in inventory and chest2 in inventory and chest3 in inventory:
-			print("\nYou swing at the crumbling column and it falls and crushes Smough, you swing for a second time and kill Ornstein")
+			print("\nYou swing at the crumbling column and it falls and crushes Smough, you swing for a second time and kill Ornstein. To the north appears a fog wall that dissipates")
 			bosses = False
 		
 		elif player_input == "swing" and player_position == platform123:
@@ -774,12 +774,12 @@ directions:
 			player_position = platform123
 			print(f"{player_position}")
 		
-		elif player_input == "south" and player_position == platform122 and bosses == False:
-			player_position = platform121
+		elif player_input == "south" and player_position == platform124 and bosses == False:
+			player_position = platform123
 			print("\nYou are standing in a broken battlefield.")
 		
-		elif player_input == "north" and player_position == platform121 and bosses == False:
-			player_position = platform122
+		elif player_input == "north" and player_position == platform122 and bosses == False:
+			player_position = platform123
 			print("\nYou are standing in a broken battlefield.")
 		
 		elif player_input == "north" and player_position == platform123:
@@ -798,10 +798,7 @@ directions:
 		elif player_input == "inventory":
 			print(inventory)
 		
-		else:
-			if "q" in player_input:
-				print("\nYou quit the game")
-			elif ending == True:
+		elif ending == True:
 				print("""
 				
 	▄████▄   ▒█████   ███▄    █   ▄████  ██▀███   ▄▄▄     ▄▄▄█████▓ █    ██  ██▓    ▄▄▄     ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████    ▓██   ██▓ ▒█████   █    ██     ▄▄▄▄   ▓█████ ▄▄▄     ▄▄▄█████▓
@@ -860,6 +857,10 @@ directions:
 				secret = False
 				bonfire_save = 0
 				ending = False
+
+		else:
+			if "q" in player_input:
+				print("\nYou quit the game")
 			else:
 				print("\nThat is not a direction you can go or action you can do.")
 				
