@@ -389,13 +389,21 @@ def main():
 		#elevator positioning
 		elif player_input == "pull" and elevator_position == 1 and player_position == platform233:
 			elevator_position = 2
+			print("You pull the lever and the elevator rises in a spiral.")
 		elif player_input == "pull" and elevator_position == 2 and player_position == platform233:
 			elevator_position = 1
+			print("You pull the lever and the elevator lowers in a spiral.")
 		elif player_input == "east" and player_position == platform233 and elevator_position == 1:
 			player_position = platform224p1
 			print(f"{player_position}")
-		elif player_input == "east" and player_position == platform233 and eleavtor_postion == 2:
+		elif player_input == "east" and player_position == platform233 and elevator_position == 2:
 			player_position = platform411p2
+			print(f"{player_position}")
+		elif player_input == "west" and player_position == platform224p1:
+			player_position = platform233
+			print(f"{player_position}")
+		elif player_input == "west" and player_position == platform411p2:
+			player_position == platform233
 			print(f"{player_position}")
 		elif player_input == "down" and player_position == platform224p2:
 			player_position = platform411p2
@@ -533,12 +541,18 @@ def main():
 			print(f"{player_position}")
 		elif player_input == "pull" and player_position == platform314:
 			pathlever = True
-			print("you pull the lever and see a path being extended from your feet to where you were before the marble building.")
+			print("You pull the lever and see a path being extended from your feet to where you were before the marble building.")
 		elif player_input == "south" and player_position == platform314 and pathlever == True:
 			player_position = platform311
 			print(f"{player_position}")
 		elif player_input == "north" and player_position == platform311 and pathlever == True:
 			player_position = platform314
+			print(f"{player_position}")
+		elif player_input == "north" and player_position == platform314 and elevator_position == 1:
+			player_position = platform224p1
+			print(f"{player_position}")
+		elif player_input == "north" and player_position == platform314 and elevator_position == 2:
+			player_position == platform411p2
 			print(f"{player_position}")
 		elif player_input == "north" and player_position == platform411p2:
 			player_position = platform225
