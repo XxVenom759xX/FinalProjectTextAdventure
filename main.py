@@ -84,7 +84,7 @@ def main():
 	platform020 = ("\nYou found a \x1B[3mchest\x1B[0m while walking just outside the lancet window")
 	platform123 = ("\nYou step into the fog and see steps leading upwards. When you walk up you see two fighters: Dragon Slayer Ornstein and Executioner Smough. They are standing at the back of a battle worn area and the columns holding up this ceiling are close to crumbling.")
 	platform124 = ("\nA fog behind where they were first seen disapears, leading to a staircase to the north.")
-	platform000 = ("\nYou walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
+	platform000 = ("\nYou walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home. She says that you have to say 'I want to go home'")
 #STARING GAME MATERIAL
 
 	player_name = input("What is your name?\n")
@@ -770,8 +770,8 @@ directions:
 					player_position = platform111
 					print("You wake up on the platform of complex tiles.")
 		
-		elif player_input == "north" and player_position == platform122 and bosses == False:
-			player_position = platform123
+		elif player_input == "north" and player_position == platform123 and bosses == False:
+			player_position = platform124
 			print(f"{player_position}")
 		
 		elif player_input == "south" and player_position == platform124 and bosses == False:
@@ -782,9 +782,11 @@ directions:
 			player_position = platform123
 			print("\nYou are standing in a broken battlefield.")
 		
-		elif player_input == "north" and player_position == platform123:
-			player_position == platform000
+		elif player_input == "north" and player_position == platform124:
+			player_position = platform000
 			print(f"{player_position}")
+
+		elif player_input == "i want to go home":	
 			if BK1 == False and Bk2 == False and BK3 == False and BK4 == False and BK5 == False and robedguys == False and chandelierFallen == True and pathlever == True and canLightBonfires == True and bonfire1 == True and bonfire2 == True and secret == True:
 				ending3 = True
 				ending = True
@@ -835,9 +837,11 @@ directions:
 				if ending1 == True and ending2 == True and ending3 == True:
 					print("You have achieved all endings for the game. Thank you for playing.")
 					print(f"Your death count {death_count}")
-				#resetting all variables for another playthorugh except endings.
+#resetting all variables for another playthorugh except endings.
 				canLightBonfires = False
-				inventory.remove(chest1, chest2, chest3)
+				inventory.remove(chest1)
+				inventory.remove(chest2)
+				inventory.remove(chest3)
 				if chest4 in inventory:
 					inventory.remove(chest4)
 				bonfire1 = False
@@ -857,7 +861,7 @@ directions:
 				secret = False
 				bonfire_save = 0
 				ending = False
-
+				print(f"{player_position}")
 		else:
 			if "q" in player_input:
 				print("\nYou quit the game")
