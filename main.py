@@ -86,7 +86,7 @@ def main():
 	platform123 = ("A fog behind where they were first seen disapears, leading to a staircase to the north.")
 	platform000 = ("You walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
 #STARING GAME MATERIAL
-ballz
+
 	player_name = input("What is your name?\n")
 	player_position = platform111
 	player_input = ""
@@ -428,7 +428,7 @@ directions:
 ·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
 
 			""")
-<<<<<<< HEAD
+
 		elif player_input == "save" and player_position == platform413 and bonfire2 == True:
 			print("Position saved, and game data saved.")
 			bonfire_save = 1
@@ -441,11 +441,11 @@ directions:
 				loaded_data = pickle.load(file)
 			canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save = loaded_data
 		
-=======
+
 		elif player_input == "save" and player_position == platform413:
 			bonfire_save = 0
 			print("Position saved")
->>>>>>> 3e289a58a4b6de5120baf2674adc03debd569561
+
 		elif player_input == "south" and player_position == platform413:
 			player_position = platform412
 			print("You can see a dark room to the north.")
