@@ -115,6 +115,9 @@ directions:
 	down
 			""")
 		
+		elif player_input == "currentposition":
+			print(f"{player_position}")
+
 		elif player_input == "north" and player_position == platform111:
 			player_position = platform212
 			print(f"{player_position}")
@@ -616,7 +619,7 @@ directions:
 			print(f"{player_position}")
 		
 		elif player_input == "south" and player_position == platform225 and elevator_position == 2:
-			player_position = platform411p2
+			player_position = platform224p2
 			print(f"{player_position}")
 		
 		elif player_input == "south" and player_position == platform121:
@@ -850,7 +853,7 @@ directions:
 				chandelierFallen = False
 				fakewall = False
 				firstspawn = True
-				pathlever
+				pathlever = False
 				BK1 = True
 				BK2 = True
 				BK3 = True
@@ -861,6 +864,7 @@ directions:
 				secret = False
 				bonfire_save = 0
 				ending = False
+				player_position = platform111
 				print(f"{player_position}")
 		else:
 			if "q" in player_input:
