@@ -874,3 +874,4 @@ directions:
 				
 if __name__ == "__main__":
 	main()
+#thanks for playing my game
