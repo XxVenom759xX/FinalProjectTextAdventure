@@ -1,5 +1,15 @@
 #Dark Souls
 import pickle
+#adding class
+class Bk:
+	def __init__(self, talk):
+		self.talk = talk
+
+bk1 = Bk("You should turn back.")
+bk2 = Bk("We gaurd what you need most.")
+bk3 = Bk("We gaurd what you need most.")
+bk4 = Bk("Be wise with what you have.")
+bk5 = Bk("Lest you might be what you least want.")
 #first description
 def main():
 	print("Before playing, make sure the terminal is full screen and cleared\n")
@@ -53,7 +63,7 @@ def main():
 	secret = False
 	bonfire_save = 0
 	death_count = 0
-#laying out print variables labled by their height, then distance based on the amount of rooms after the first platform
+	#laying out print variables labled by their height, then distance based on the amount of rooms after the first platform
 	platform111 = ("\nYou wake up on a small platform of complex tiles with guard rails made of marble on all sides except north. The world is a yellow-ish red color and the sun is blaring on you. In the distance there is a forrest full of fall leaves and to the north-west you see a large catherdral of red stone. You are wearing blackened leather armour, but you can tell it won't last long, and you are holding a broken iron sword")
 	platform212 = ("\nYou head towards the north and see a staircase going downwards and to the left hanging along the side of a building made of the same red stone. When you reach the bottom of the staircase you see a giant Knight dressed in black iron armour. The walkway ends where the Knight is standing and there is a door to the south that leads into a room.")
 	platform211 = ("\nThe building is tall and has arches for doorways. Inside the room you see a pair of the giant Knights across the room from each other. There is a \x1B[3mchest\x1B[0m that the two are gaurding. To the West you see an exit to the building")
@@ -66,7 +76,7 @@ def main():
 	platform312 = ("\nYou find a missing link in the small gaurd rails that allows you to climb the buttress. When you reach the top there is a broken window to the west")
 	platform231 = ("\nYou step into the building and find that there are wooden rafters leading to a chandelier to the north. The building is made of a white marble.")
 	platform232 = ("\nWhile walking along the butresses you encounter the chandelier. The chain holding onto the chandelier looks brittle. To the north you can see the exit.")
-	platform233 = ("\nYou step out off the rafters and see a \x1B[3mlever\x1B[0m to the east.")
+	platform233 = ("\nYou step out off the rafters and see a \x1B[3mlever\x1B[0m at the exit.")
 	platform224p1 = ("\nYou step onto the large elevator and see that there is a spiral staircase leading down. There is the door to the west leading into the marbel room rafters, and there is a path leading south.")
 	platform411p1 = ("\nYou reach the bottom floor of the elevator and there is a pathway leading north and a pathway leading to the marble building bottom floor. There is a staircase leading upwards.")
 	platform224p2 = ("\nYou can see a path to the north.")
@@ -79,13 +89,14 @@ def main():
 	platform314 = ("\nYou are on a pathway with a \x1B[3mlever\x1B[0m. You can see the other path you were on before to the south.")
 	platform225 = ("\nYou walk onto the pathway going north. There are steps going upward towards the large cathedral. To the left of you there is a \x1B[3mlever\x1B[0m")
 	platform121 = ("\nThere are another two large black knights to your left and right. To the north, the large door to the cathedral.") 
-	platform122 = ("\nWhen you walk into the cathedral it is lit by candle light. There are large cloumns leading up to the ceilings that are about forty feet tall. The walls are made of red stone and marble. To the north you can see a fog gate. Large staircases to either side.")
+	platform122 = ("\nWhen you walk into the cathedral it is lit by candle light. There are large cloumns leading up to the ceilings that are about forty feet tall. The walls are made of red stone and marble. To the north you can see large staircases to either side.")
 	platform021 = ("\nWhen you walk up the stairs you see a magnificent lancet stained glass window. One panel of the window is shattered.")
-	platform020 = ("\nYou found a \x1B[3mchest\x1B[0m while walking just outside the lancet window")
+	platform020 = ("\nYou found a chest while walking just outside the lancet window")
 	platform123 = ("\nYou step into the fog and see steps leading upwards. When you walk up you see two fighters: Dragon Slayer Ornstein and Executioner Smough. They are standing at the back of a battle worn area and the columns holding up this ceiling are close to crumbling.")
 	platform124 = ("\nA fog behind where they were first seen disapears, leading to a staircase to the north.")
-	platform000 = ("\nYou walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home. She says that you have to say 'I want to go home'")
+	platform000 = ("\nYou walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
 #STARING GAME MATERIAL
+
 
 	player_name = input("What is your name?\n")
 	player_position = platform111
@@ -94,12 +105,13 @@ def main():
 	print(f"{player_position}")
 	while "q" not in player_input:
 		player_input = input("What do you do?\n").lower()
-
+#adding in controls print
 		if player_input == "controls":
 			print("""
 possible inputs:
 	controls
 	inventory
+	deathcount
 	swing
 	open
 	talk
@@ -125,17 +137,25 @@ directions:
 		
 		elif player_input == "deathcount":
 			print(f"{death_count}")
-		
+
 		elif player_input == "swing" and player_position == platform212 and chest1 in inventory and BK1 == True:
+			print("\nYou swing and kill the Black Knight.")
 			print("\nYou swing and kill the Black Knight.")
 			BK1 = False
 			player_position = platform212
 		
+		
 		elif player_input == "present" and player_position == platform111 and chest4 in inventory and ending1 == True and ending2 == True and ending3 == True:
+			print("\nYou present the undifinable object to the sun and it turns to a doll then disappears.")
 			print("\nYou present the undifinable object to the sun and it turns to a doll then disappears.")
 			secret == True
 		
+		elif player_input == "talk" and player_position == platform212 and BK1:
+			print("\n")
+			print(bk1.talk)
+		
 		elif player_input == "swing" and player_position == platform212 and chest1 not in inventory and BK1 == True:
+			print("\nYou swing but the Black knight kills you.")
 			print("\nYou swing but the Black knight kills you.")
 			death_count = death_count + 1
 			print("""
@@ -161,10 +181,17 @@ directions:
 		
 		elif player_input == "open" and player_position == platform211 and BK2 == False and BK3 == False:
 			print("\nYou open the chest and find the \x1B[3mGrass Crest Shield\x1B[0m")
+			print("\nYou open the chest and find the \x1B[3mGrass Crest Shield\x1B[0m")
 			inventory.append(chest2)
-		
+
+		elif player_input == "talk" and player_position == platform211 and BK2 == True and BK3 == True:
+			print("\n")
+			print(bk2.talk)
+			print(bk3.talk)
+
 		elif player_input == "north" and player_position == platform211 and BK1 == False:
 			player_position == platform212
+			print("\nThere is a path to the east leading to the complex tiled platform, and there is a building to the south with a tall arched doorway.")
 			print("\nThere is a path to the east leading to the complex tiled platform, and there is a building to the south with a tall arched doorway.")
 		
 		elif player_input == "south" and player_position == platform212:
@@ -174,9 +201,11 @@ directions:
 		elif player_input == "south" and player_position == platform212 and BK2 == False and BK3 == False:
 			player_position = platform211
 			print("\nThere is an exit to the north and west.")
+			print("\nThere is an exit to the north and west.")
 		
 		elif player_input == "east" and player_position == platform222 and BK2 == False and BK3 == False:
 			player_position = platform211
+			print("\nThere is an exit to the north and west.")
 			print("\nThere is an exit to the north and west.")
 		
 		elif player_input == "north" and player_position == platform211:
@@ -185,11 +214,13 @@ directions:
 		
 		elif player_input == "swing" and player_position == platform211 and chest1 in inventory and BK2 == True and BK3 == True:
 			print("\nYou swing and kill the two black knights.")
+			print("\nYou swing and kill the two black knights.")
 			BK2 = False
 			BK3 = False
 			player_position = platform211
 		
 		elif player_input == "swing" and player_position == platform211 and chest1 not in inventory and BK2 == True and BK3 == True:
+			print("\nYou swing but the Black Knights kill you.")
 			print("\nYou swing but the Black Knights kill you.")
 			death_count = death_count + 1
 			print("""
@@ -231,7 +262,7 @@ directions:
 			""")
 			if bonfire_save == 1:
 				player_position = platform221
-				print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m")
+				print("nYou wake up in the room with the \x1B[3mFirebearer\x1B[0m")
 			elif bonfire_save == 2:
 				player_position = platform413
 				print("You wake up in the dark room with the bonfire.")
@@ -240,6 +271,7 @@ directions:
 				print("You wake up on the platform of complex tiles.")
 		
 		elif player_input == "open" and player_position == platform211 and chest1 in inventory and BK2 == True and BK3 == True:
+			print("\nYou go to open the chest but the Black Knights kill you while you back is turned.")
 			print("\nYou go to open the chest but the Black Knights kill you while you back is turned.")
 			death_count = death_count + 1
 			print("""
@@ -268,6 +300,7 @@ directions:
 		elif player_input == "east" and player_position == platform212 and firstspawn == False:
 			player_position = platform111
 			print(f"\nYou walk up to the platform, The only place to go is north. The sun is blaring on you.")
+			print(f"\nYou walk up to the platform, The only place to go is north. The sun is blaring on you.")
 		
 		elif player_input == "west" and player_position == platform211:
 			player_position = platform222
@@ -278,6 +311,7 @@ directions:
 			print(f"{player_position}")
 		
 		elif player_input == "talk" and player_position == platform221:
+			print(f"\nYou are that chosen undead everyone is talking about, what was the name they were calling you, {player_name.title()}, yes? Do you see that \033[1;31:0m\x1B[3mbonfire\x1B[0m over there? you can light them with this and  \033[1;31:0m\x1B[3msave your progress\x1B[0m.")
 			print(f"\nYou are that chosen undead everyone is talking about, what was the name they were calling you, {player_name.title()}, yes? Do you see that \033[1;31:0m\x1B[3mbonfire\x1B[0m over there? you can light them with this and  \033[1;31:0m\x1B[3msave your progress\x1B[0m.")
 			canLightBonfires = True
 		
@@ -297,14 +331,13 @@ directions:
 			bonfire_save = 1
 			with open("darksouls.dat", "wb") as file:
 				pickle.dump((canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save), file)
-				
-
+		
 		elif player_input == "load":
 			print("\nPosition and game data loaded.")
 			with open("darksouls.dat", "rb") as file:
 				loaded_data = pickle.load(file)
 			canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save = loaded_data
-			print(f"{player_position}")	
+			print(f"{player_position}")
 
 		elif player_input == "north" and player_position == platform221:
 			player_position = platform222
@@ -322,60 +355,73 @@ directions:
 			player_position = platform222
 			print(f"{player_position}")
 		
+		
 		elif player_input == "down" and player_position == platform223:
 			player_position = platform310s
 			print(f"{player_position}")
+		
 		
 		elif player_input == "up" and player_position == platform310s:
 			player_position = platform223
 			print(f"{player_position}")
 		
+		
 		elif player_input == "north" and player_position == platform310s:
 			player_position = platform311
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform311:
 			player_position = platform310s
 			print(f"{player_position}")
 		
+		
 		elif player_input == "east" and player_position == platform311:
 			player_position = platform310
 			print(f"{player_position}")
 		
+		
 		elif player_input == "open" and player_position == platform310 and chest1 not in inventory:
 			print("\nYou open the \x1B[3mchest\x1B[0m and you find a \x1B[3mBlack Iron Sword\x1B[0m")
+			print("\nYou open the \x1B[3mchest\x1B[0m and you find a \x1B[3mBlack Iron Sword\x1B[0m")
 			inventory.append(chest1)
+		
 		
 		elif player_input == "west" and player_position == platform310:
 			player_position = platform311
 			print(f"{player_position}")
 		
+		
 		elif player_input == "west" and player_position == platform311:
 			player_position = platform312
 			print(f"{player_position}")
+		
 		
 		elif player_input == "west" and player_position == platform312:
 			player_position = platform231
 			print(f"{player_position}")
 		
+		
 		elif player_input == "north" and player_position == platform231:
 			player_position = platform232
 			print(f"{player_position}")
+		
 		
 		elif player_input == "east" and player_position == platform312:
 			player_position = platform311
 			print(f"{player_position}")
 		
+		
 		elif player_input == "east" and player_position == platform231:
 			player_position = platform312
 			print(f"{player_position}")
 		
-		elif player_input == "swing" and player_position == platform232 and chest1 in inventory and chandelierFallen == False:
+		elif player_input == "swing" and player_position == platform232 and chest1 in inventory:
 			print(f"\nYou swing and hit the brittle chain holding the chandelier, and it drops to the gorund crushing many foes beneath it.")
 			chandelierFallen = True
 		
-		elif player_input == "swing" and player_position == platform232 and chest1 not in inventory and chandelierFallen == False:
-			print("You reach out to swing for the chandelier but the broken sword is not long enough and you fall to the floor killing yourself.")
+		elif player_input == "swing" and player_position == platform232 and chest1 not in inventory:
+			print("\nYou reach out to swing for the chandelier but the broken sword is not long enough and you fall to the floor killing yourself.")
 			death_count = death_count + 1
 			print("""
 			
@@ -400,13 +446,16 @@ directions:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
 		
+		
 		elif player_input == "north" and player_position == platform232:
 			player_position = platform233
 			print(f"{player_position}")
 		
+		
 		elif player_input == "south" and player_position == platform233:
 			player_position = platform232
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform232:
 			player_position = platform231
@@ -416,9 +465,13 @@ directions:
 			elevator_position = 2
 			print("\nYou pull the lever and the elevator rises in a spiral.")
 		
+		
 		elif player_input == "pull" and elevator_position == 2 and player_position == platform233:
 			elevator_position = 1
 			print("\nYou pull the lever and the elevator lowers in a spiral.")
+		
+		elif player_input == "east" and player_position == platform233 and elevator_position == 1:
+			player_position = platform224p1
 		
 		elif player_input == "east" and player_position == platform233 and elevator_position == 1:
 			player_position = platform224p1
@@ -427,27 +480,28 @@ directions:
 		elif player_input == "east" and player_position == platform233 and elevator_position == 2:
 			player_position = platform411p2
 			print(f"{player_position}")
-		
+
+		elif player_input == "west" and player_position == platform411p2:
+			player_position = platform233
+			print(f"{player_position}")
+
 		elif player_input == "west" and player_position == platform224p1:
 			player_position = platform233
 			print(f"{player_position}")
-		
-		elif player_input == "west" and player_position == platform411p2:
-			player_position == platform233
-			print(f"{player_position}")
-		
+
 		elif player_input == "down" and player_position == platform224p2:
 			player_position = platform411p2
 			print(f"{player_position}")
 		
+		
 		elif player_input == "up" and player_position == platform411p2:
 			player_position = platform224p2
 			print(f"{player_position}")
-		
+
 		elif player_input == "down" and player_position == platform224p1:
 			player_position = platform411p1
 			print(f"{player_position}")
-		
+
 		elif player_input == "up" and player_position == platform411p1:
 			player_position = platform224p1
 			print(f"{player_position}")
@@ -455,23 +509,33 @@ directions:
 		
 		elif player_input == "north" and player_position == platform411p1 and fakewall == True:
 			print("\nYou can see an arched doorway to the north.")
+			print("\nYou can see an arched doorway to the north.")
 			player_position = platform412
+		
 		
 		elif player_input == "north" and player_position == platform411p1 and fakewall == False:
 			print("\nThe pathway leads to a dead end.")
+			print("\nThe pathway leads to a dead end.")
 			player_position = platform412
+		
 		
 		elif player_input == "south" and player_position == platform412:
 			player_position = platform411p1
+			player_position = platform411p1
 			print(f"{player_position}")
 		
+		elif player_input == "west" and player_position == platform411p1:
+			player_position = platform333
+			print(f"{player_position}")
+
 		elif player_input == "swing" and player_position == platform412 and chest1 in inventory:
-			print("\nYou swing at the wall and the wall turns to fog and dissipates, an arched door is left in its place")
+			print("\nYou swing at the wall and the wall turns to fog and disappears, an arched door is left in its place")
 			fakewall = True
 		
-		elif player_input == "north" and player_position == platform412 and fakewall == False:
+		elif player_input == "north" and player_position == platform412 and fakewall == True:
 			player_position = platform413
 			print(f"{player_position}")
+		
 		
 		elif player_input == "light" and player_position == platform413 and canLightBonfires == True:
 			print("""
@@ -483,38 +547,41 @@ directions:
 	·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
 
 			""")
-			bonfire2 = True
 
 		elif player_input == "save" and player_position == platform413 and bonfire2 == True:
 			print("\nPosition saved, and game data saved.")
-			bonfire_save = 2
+			bonfire_save = 1
 			with open("darksouls.dat", "wb") as file:
 				pickle.dump((canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save), file)
+		
+		elif player_input == "load" and player_position == platform413 and bonfire2 == True:
+			print("\nPosition and game data loaded.")
+			with open("darksouls.dat", "rb") as file:
+				loaded_data = pickle.load(file)
+			canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save = loaded_data
+		
+
+		elif player_input == "save" and player_position == platform413:
+			bonfire_save = 0
+			print("\nPosition saved")
 
 		elif player_input == "south" and player_position == platform413:
 			player_position = platform412
+			print("\nYou can see a dark room to the north.")
+		
 			print("\nYou can see a dark room to the north.")
 		
 		elif player_input == "south" and player_position == platform333:
 			player_position = platform323
 			print(f"{player_position}")
 		
+		
 		elif player_input == "south" and player_position == platform323 and robedguys == False:
 			player_position = platform321
 			print(f"{player_position}")
 		
-		elif player_input == "west" and player_position == platform411p1:
-			player_position = platform333
-			print(f"{player_position}")
-		
-		elif player_position == "" and player_position == platform224p1:
-			player_position = platform223
-		
-		elif player_input == "east" and player_position == platform333:
-			player_position = platform411p1
-			print(f"{player_position}")
-		
 		elif player_input == "south" and player_position == platform323 and robedguys == True:
+			print("\nYou try to get by the soldiers but there are too many and they stab you to death.")
 			print("\nYou try to get by the soldiers but there are too many and they stab you to death.")
 			death_count = death_count + 1
 			print("""
@@ -540,11 +607,14 @@ directions:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
 		
+		
 		elif player_input == "swing" and player_position == platform323 and chandelierFallen == True:
-			print("\nYou killed enough of the robed soldiers with the chandelier in order to kill the rest.")
+			print("\nYou killed enought of the robed soldiers in order to kill the rest.")
 			robedguys = False
 		
+		
 		elif player_input == "swing" and player_position == platform323 and chandelierFallen == False:
+			print("\nYou get overun by robed soldiers and get stabbed to death.")
 			print("\nYou get overun by robed soldiers and get stabbed to death.")
 			death_count = death_count + 1
 			print("""
@@ -569,12 +639,16 @@ directions:
 			else:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
-		
+
 		elif player_input == "open" and player_position == platform321 and robedguys == False:
 			print(f"\nYou open the chest and find something, but you can't tell what it is.")
+			print(f"\nYou open the chest and find something, but you can't tell what it is.")
 			inventory.append(chest4)
-		
+
 		elif player_input == "north" and player_position == platform321:
+			player_position = platform322
+			print(f"{player_position}")
+
 			player_position = platform323
 			print("\nYou walk to where the chandelier is.")
 		
@@ -589,18 +663,21 @@ directions:
 		elif player_input == "south" and player_position == platform224p1:
 			player_position = platform314
 			print(f"{player_position}")
-		
+
 		elif player_input == "south" and player_position == platform411p2:
 			player_position = platform314
 			print(f"{player_position}")
-		
+
 		elif player_input == "pull" and player_position == platform314:
 			pathlever = True
+			print("\nYou pull the lever and see a path being extended from your feet to where you were before the marble building.")
+		
 			print("\nYou pull the lever and see a path being extended from your feet to where you were before the marble building.")
 		
 		elif player_input == "south" and player_position == platform314 and pathlever == True:
 			player_position = platform311
 			print(f"{player_position}")
+		
 		
 		elif player_input == "north" and player_position == platform311 and pathlever == True:
 			player_position = platform314
@@ -609,34 +686,68 @@ directions:
 		elif player_input == "north" and player_position == platform314 and elevator_position == 1:
 			player_position = platform224p1
 			print(f"{player_position}")
-		
+
 		elif player_input == "north" and player_position == platform314 and elevator_position == 2:
 			player_position = platform411p2
 			print(f"{player_position}")
-		
+
 		elif player_input == "north" and player_position == platform224p2:
 			player_position = platform225
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform225 and elevator_position == 2:
 			player_position = platform224p2
 			print(f"{player_position}")
 		
+		
 		elif player_input == "south" and player_position == platform121:
 			player_position = platform225
 			print(f"{player_position}")
 		
+		
 		elif player_input == "pull" and player_position == platform225 and elevator_position == 2:
 			print("\nYou pull the lever and the elevator drops.")
-			elevator_position = 1
+		
 		elif player_input == "pull" and player_position == platform225 and elevator_position == 1:
 			print("\nYou pull the lever and the elevator rises up.")
-			
-		elif player_input == "north" and player_position == platform225 and BK4 == True and BK5 == True:
+		
+		elif player_input == "north" and player_position == platform225:
 			player_position = platform121
 			print(f"{player_position}")
 		
-		elif player_input == "swing" and player_position == platform121 and chest1 in inventory and BK4 == True and BK5 == True:
+		elif player_input == "talk" and player_position == platform121:
+			print("\n")
+			print(bk4.talk)
+			print(bk5.talk)
+		
+		elif player_input == "swing" and player_position == platform121 and chest1 not in inventory and BK4 == True and BK5 == True:
+			print("\nYou go to swing but the black night opposite you stabs you in the back.")
+			death_count = death_count + 1
+			print("""
+			
+▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+ ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+ ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+ ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+ ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+ ░ ░                           ░                  ░      
+			""")
+			if bonfire_save == 1:
+				player_position = platform221
+				print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m")
+			elif bonfire_save == 2:
+				player_position == platform413
+				print("You wake up in the dark room with the bonfire.")
+			else:
+				player_position = platform111
+				print("You wake up on the platform of complex tiles.")
+		
+		elif player_input == "swing" and player_position == platform121 and chest1 in invetory and BK4 == True and BK5 == True:
 			print("\nYou swing and kill the Black Knights to your left and right.")
 			BK4 == False
 			BK5 == False
@@ -687,7 +798,7 @@ directions:
 		elif player_input == "west" and player_position == platform122:
 			player_position = platform021
 			print(f"{player_position}")
-		
+
 		elif player_input == "east" and player_position == platform122:
 			player_position = platform021
 			print(f"{player_position}")
@@ -696,17 +807,23 @@ directions:
 			player_position = platform122
 			print(f"{player_position}")
 		
+		
 		elif player_input == "east" and player_position == platform021:
 			player_position = platform122
+			player_position = platform122
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform021:
 			player_position = platform020
 			print(f"{player_position}")
 		
+		
 		elif player_input == "open" and player_position == platform020:
 			print("\nYou open the chest and find Fine Iron Armor")
+			print("\nYou open the chest and find Fine Iron Armor")
 			inventory.append(chest3)
+		
 		
 		elif player_input == "north" and player_position == platform020:
 			player_position = platform021
@@ -714,7 +831,13 @@ directions:
 		
 		elif player_input == "north" and player_position == platform122:
 			player_position = platform123
+		
+		elif player_input == "north" and player_position == platform122:
+			player_position = platform123
 			print(f"{player_position}")
+		
+		elif player_input == "south" and player_position == platform123 and bosses == True:
+			print("\nYou try to go south but there is now a fog wall covering the way. While trying to exit you get crushed by Ornstein")
 		
 		elif player_input == "south" and player_position == platform123 and bosses == True:
 			print("\nYou try to go south but there is now a fog wall covering the way. While trying to exit you get crushed by Ornstein")
@@ -743,7 +866,7 @@ directions:
 				print("You wake up on the platform of complex tiles.")
 		
 		elif player_input == "swing" and player_position == platform123 and chest1 in inventory and chest2 in inventory and chest3 in inventory:
-			print("\nYou swing at the crumbling column and it falls and crushes Smough, you swing for a second time and kill Ornstein. To the north appears a fog wall that dissipates")
+			print("\nYou swing at the crumbling column and it falls and crushes Smough, you swing for a second time and kill Ornstein")
 			bosses = False
 		
 		elif player_input == "swing" and player_position == platform123:
@@ -781,30 +904,37 @@ directions:
 			player_position = platform123
 			print("\nYou are standing in a broken battlefield.")
 		
-		elif player_input == "north" and player_position == platform122 and bosses == False:
+		elif player_input == "north" and player_position == platform123 and bosses == False:
+			player_position = platform124
+			print(f"{player_position}")
+		
+		elif player_input == "south" and player_position == platform124 and bosses == False:
 			player_position = platform123
 			print("\nYou are standing in a broken battlefield.")
 		
+		elif player_input == "north" and player_position == platform122 and bosses == False:
+			player_position = platform123
+			print("\nYou are standing in a broken battlefield.")
+#figuring out endings.
 		elif player_input == "north" and player_position == platform124:
 			player_position = platform000
 			print(f"{player_position}")
-
-		elif player_input == "i want to go home":	
-			if BK1 == False and Bk2 == False and BK3 == False and BK4 == False and BK5 == False and robedguys == False and chandelierFallen == True and pathlever == True and canLightBonfires == True and bonfire1 == True and bonfire2 == True and secret == True:
+			if BK1 == False and BK2 == False and BK3 == False and BK4 == False and BK5 == False and robedguys == False and chandelierFallen == True and pathlever == True and canLightBonfires == True and bonfire1 == True and bonfire2 == True and secret == True:
 				ending3 = True
 				ending = True
-			elif BK1 == False and Bk2 == False and BK3 == False and BK4 == False and BK5 == False and robedguys == False and chandelierFallen == True and pathlever == True and canLightBonfires == True and bonfire1 == True and bonfire2 == True:
+			elif BK1 == False and BK2 == False and BK3 == False and BK4 == False and BK5 == False and robedguys == False and chandelierFallen == True and pathlever == True and canLightBonfires == True and bonfire1 == True and bonfire2 == True:
 				ending2 = True
 				ending = True
 			else:
 				ending1 = True
 				ending = True
 		
+		
 		elif player_input == "inventory":
 			print(inventory)
 		
 		elif ending == True:
-				print("""
+			print("""
 				
 	▄████▄   ▒█████   ███▄    █   ▄████  ██▀███   ▄▄▄     ▄▄▄█████▓ █    ██  ██▓    ▄▄▄     ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████    ▓██   ██▓ ▒█████   █    ██     ▄▄▄▄   ▓█████ ▄▄▄     ▄▄▄█████▓
 	▒██▀ ▀█  ▒██▒  ██▒ ██ ▀█   █  ██▒ ▀█▒▓██ ▒ ██▒▒████▄   ▓  ██▒ ▓▒ ██  ▓██▒▓██▒   ▒████▄   ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒     ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▓█████▄ ▓█   ▀▒████▄   ▓  ██▒ ▓▒
@@ -828,19 +958,17 @@ directions:
 	░                                                                                                                               ░                                                                  
 
 				""")
-				if ending1 == True:
-					print("You have ending 1")
-					print(f"Your death count {death_count}")
-				if ending2 == True:
-					print("You have ending 2")
-					print(f"Your death count {death_count}")
-				if ending3 == True:
-					print("You have ending 3")
-					print(f"Your death count {death_count}")
-				if ending1 == True and ending2 == True and ending3 == True:
-					print("You have achieved all endings for the game. Thank you for playing.")
-					print(f"Your death count {death_count}")
-#resetting all variables for another playthorugh except endings.
+			if ending1 == True:
+				print("You have ending 1")
+			elif ending2 == True:
+				print("You have ending 2")
+			elif ending3 == True:
+				print("You have ending 3")
+			elif ending1 == True and ending2 == True and ending3 == True:
+				print("You have achieved all endings for the game. Thank you for playing.")
+				player_input = q
+			#resetting all variables for another playthorugh except endings.
+				print(f"Your death count {death_count}")
 				canLightBonfires = False
 				inventory.remove(chest1)
 				inventory.remove(chest2)
@@ -867,10 +995,8 @@ directions:
 				player_position = platform111
 				print(f"{player_position}")
 		else:
-			if "q" in player_input:
-				print("\nYou quit the game")
-			else:
-				print("\nThat is not a direction you can go or action you can do.")
+			print("That is not a direction you can go or action you can do.")
 				
 if __name__ == "__main__":
 	main()
+#thanks for playing my game
