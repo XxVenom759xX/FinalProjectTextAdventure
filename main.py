@@ -328,7 +328,6 @@ directions:
 			bonfire1 = True
 		elif player_input == "save" and player_position == platform221 and bonfire1 == True:
 			print("\nPosition saved, and game data saved.")
-			print("\nPosition saved, and game data saved.")
 			bonfire_save = 1
 			with open("darksouls.dat", "wb") as file:
 				pickle.dump((canLightBonfires, bonfire1, bonfire2, inventory, player_position, elevator_position, ending, ending1, ending2, ending3, chandelierFallen, fakewall, firstspawn, pathlever, bosses, robedguys, secret, bonfire_save), file)
@@ -797,17 +796,12 @@ directions:
 			print(f"{player_position}")
 		
 		elif player_input == "west" and player_position == platform122:
-		
-		elif player_input == "west" and player_position == platform122:
 			player_position = platform021
 			print(f"{player_position}")
-		
-		elif player_input == "east" and player_position == platform122:
-		
+
 		elif player_input == "east" and player_position == platform122:
 			player_position = platform021
 			print(f"{player_position}")
-		
 		
 		elif player_input == "west" and player_position == platform021:
 			player_position = platform122
@@ -876,8 +870,6 @@ directions:
 			bosses = False
 		
 		elif player_input == "swing" and player_position == platform123:
-		
-		elif player_input == "swing" and player_position == platform123:
 			if chest1 not in inventory or chest2 not in inventory or chest3 not in inventory:
 				print("\nYou go to swing at Ornstein and Smough but you were not prepared enough to meet them.")
 				death_count = death_count + 1
@@ -912,7 +904,6 @@ directions:
 			player_position = platform123
 			print("\nYou are standing in a broken battlefield.")
 		
-		
 		elif player_input == "north" and player_position == platform123 and bosses == False:
 			player_position = platform124
 			print(f"{player_position}")
@@ -943,7 +934,7 @@ directions:
 			print(inventory)
 		
 		elif ending == True:
-				print("""
+			print("""
 				
 	▄████▄   ▒█████   ███▄    █   ▄████  ██▀███   ▄▄▄     ▄▄▄█████▓ █    ██  ██▓    ▄▄▄     ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████    ▓██   ██▓ ▒█████   █    ██     ▄▄▄▄   ▓█████ ▄▄▄     ▄▄▄█████▓
 	▒██▀ ▀█  ▒██▒  ██▒ ██ ▀█   █  ██▒ ▀█▒▓██ ▒ ██▒▒████▄   ▓  ██▒ ▓▒ ██  ▓██▒▓██▒   ▒████▄   ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒     ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▓█████▄ ▓█   ▀▒████▄   ▓  ██▒ ▓▒
@@ -967,16 +958,16 @@ directions:
 	░                                                                                                                               ░                                                                  
 
 				""")
-				if ending1 == True:
-					print("You have ending 1")
-				if ending2 == True:
-					print("You have ending 2")
-				if ending3 == True:
-					print("You have ending 3")
-				if ending1 == True and ending2 == True and ending3 == True:
-					print("You have achieved all endings for the game. Thank you for playing.")
-					player_input = q
-				#resetting all variables for another playthorugh except endings.
+			if ending1 == True:
+				print("You have ending 1")
+			elif ending2 == True:
+				print("You have ending 2")
+			elif ending3 == True:
+				print("You have ending 3")
+			elif ending1 == True and ending2 == True and ending3 == True:
+				print("You have achieved all endings for the game. Thank you for playing.")
+				player_input = q
+			#resetting all variables for another playthorugh except endings.
 				print(f"Your death count {death_count}")
 				canLightBonfires = False
 				inventory.remove(chest1)
@@ -1003,8 +994,8 @@ directions:
 				ending = False
 				player_position = platform111
 				print(f"{player_position}")
-			else:
-				print("That is not a direction you can go or action you can do.")
+		else:
+			print("That is not a direction you can go or action you can do.")
 				
 if __name__ == "__main__":
 	main()
