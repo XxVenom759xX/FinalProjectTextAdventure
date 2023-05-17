@@ -97,10 +97,11 @@ def main():
 	platform000 = ("\nYou walk up the stairs and see the Princess of Sunlight, Gwindolyn. She thanks you for ending the terror that ornstein and smough have caused and gives you a piece to teleport you back home.")
 #STARING GAME MATERIAL
 
+
 	player_name = input("What is your name?\n")
 	player_position = platform111
 	player_input = ""
-	print("Please use the full name or direction you want to go or do.")
+	print("Please use the full name of the direction you want to go or action you want to do.")
 	print(f"{player_position}")
 	while "q" not in player_input:
 		player_input = input("What do you do?\n").lower()
@@ -125,19 +126,27 @@ directions:
 	up
 	down
 			""")
+		
+		elif player_input == "currentposition":
+			print(f"{player_position}")
+
 		elif player_input == "north" and player_position == platform111:
 			player_position = platform212
 			print(f"{player_position}")
 			firstspawn = False
+		
 		elif player_input == "deathcount":
 			print(f"{death_count}")
 
 		elif player_input == "swing" and player_position == platform212 and chest1 in inventory and BK1 == True:
 			print("\nYou swing and kill the Black Knight.")
+			print("\nYou swing and kill the Black Knight.")
 			BK1 = False
 			player_position = platform212
 		
+		
 		elif player_input == "present" and player_position == platform111 and chest4 in inventory and ending1 == True and ending2 == True and ending3 == True:
+			print("\nYou present the undifinable object to the sun and it turns to a doll then disappears.")
 			print("\nYou present the undifinable object to the sun and it turns to a doll then disappears.")
 			secret == True
 		
@@ -147,18 +156,19 @@ directions:
 		
 		elif player_input == "swing" and player_position == platform212 and chest1 not in inventory and BK1 == True:
 			print("\nYou swing but the Black knight kills you.")
+			print("\nYou swing but the Black knight kills you.")
 			death_count = death_count + 1
 			print("""
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      """)
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      """)
 			if bonfire_save == 1:
 				player_position = platform221
 				print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m.")
@@ -171,6 +181,7 @@ directions:
 		
 		elif player_input == "open" and player_position == platform211 and BK2 == False and BK3 == False:
 			print("\nYou open the chest and find the \x1B[3mGrass Crest Shield\x1B[0m")
+			print("\nYou open the chest and find the \x1B[3mGrass Crest Shield\x1B[0m")
 			inventory.append(chest2)
 
 		elif player_input == "talk" and player_position == platform211 and BK2 == True and BK3 == True:
@@ -181,6 +192,7 @@ directions:
 		elif player_input == "north" and player_position == platform211 and BK1 == False:
 			player_position == platform212
 			print("\nThere is a path to the east leading to the complex tiled platform, and there is a building to the south with a tall arched doorway.")
+			print("\nThere is a path to the east leading to the complex tiled platform, and there is a building to the south with a tall arched doorway.")
 		
 		elif player_input == "south" and player_position == platform212:
 			player_position = platform211
@@ -189,9 +201,11 @@ directions:
 		elif player_input == "south" and player_position == platform212 and BK2 == False and BK3 == False:
 			player_position = platform211
 			print("\nThere is an exit to the north and west.")
+			print("\nThere is an exit to the north and west.")
 		
 		elif player_input == "east" and player_position == platform222 and BK2 == False and BK3 == False:
 			player_position = platform211
+			print("\nThere is an exit to the north and west.")
 			print("\nThere is an exit to the north and west.")
 		
 		elif player_input == "north" and player_position == platform211:
@@ -200,24 +214,26 @@ directions:
 		
 		elif player_input == "swing" and player_position == platform211 and chest1 in inventory and BK2 == True and BK3 == True:
 			print("\nYou swing and kill the two black knights.")
+			print("\nYou swing and kill the two black knights.")
 			BK2 = False
 			BK3 = False
 			player_position = platform211
 		
 		elif player_input == "swing" and player_position == platform211 and chest1 not in inventory and BK2 == True and BK3 == True:
 			print("\nYou swing but the Black Knights kill you.")
+			print("\nYou swing but the Black Knights kill you.")
 			death_count = death_count + 1
 			print("""
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      """)
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      """)
 			if bonfire_save == 1:
 				player_position = platform221
 				print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m")
@@ -229,20 +245,20 @@ directions:
 				print("You wake up on the platform of complex tiles.")
 		
 		elif player_input == "open" and player_position == platform211 and chest1 not in inventory and BK2 == True and BK3 == True:
-			print("You go to open the chest but the Black Knights kill you.")
+			print("\nYou go to open the chest but the Black Knights kill you.")
 			death_count = death_count + 1
 			print("""
 			
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
 			""")
 			if bonfire_save == 1:
 				player_position = platform221
@@ -256,19 +272,20 @@ directions:
 		
 		elif player_input == "open" and player_position == platform211 and chest1 in inventory and BK2 == True and BK3 == True:
 			print("\nYou go to open the chest but the Black Knights kill you while you back is turned.")
+			print("\nYou go to open the chest but the Black Knights kill you while you back is turned.")
 			death_count = death_count + 1
 			print("""
 			
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
 			""")
 			if bonfire_save == 1:
 				player_position = platform221
@@ -283,6 +300,7 @@ directions:
 		elif player_input == "east" and player_position == platform212 and firstspawn == False:
 			player_position = platform111
 			print(f"\nYou walk up to the platform, The only place to go is north. The sun is blaring on you.")
+			print(f"\nYou walk up to the platform, The only place to go is north. The sun is blaring on you.")
 		
 		elif player_input == "west" and player_position == platform211:
 			player_position = platform222
@@ -294,20 +312,22 @@ directions:
 		
 		elif player_input == "talk" and player_position == platform221:
 			print(f"\nYou are that chosen undead everyone is talking about, what was the name they were calling you, {player_name.title()}, yes? Do you see that \033[1;31:0m\x1B[3mbonfire\x1B[0m over there? you can light them with this and  \033[1;31:0m\x1B[3msave your progress\x1B[0m.")
+			print(f"\nYou are that chosen undead everyone is talking about, what was the name they were calling you, {player_name.title()}, yes? Do you see that \033[1;31:0m\x1B[3mbonfire\x1B[0m over there? you can light them with this and  \033[1;31:0m\x1B[3msave your progress\x1B[0m.")
 			canLightBonfires = True
 		
 		elif player_input == "light" and player_position == platform221 and canLightBonfires == True:
 			print("""
 			
-▄▄▄▄·        ▐ ▄ ·▄▄▄▪  ▄▄▄  ▄▄▄ .    ▄▄▌  ▪  ▄▄▄▄▄
-▐█ ▀█▪▪     •█▌▐█▐▄▄·██ ▀▄ █·▀▄.▀·    ██•  ██ •██  
-▐█▀▀█▄ ▄█▀▄ ▐█▐▐▌██▪ ▐█·▐▀▀▄ ▐▀▀▪▄    ██▪  ▐█· ▐█.▪
-██▄▪▐█▐█▌.▐▌██▐█▌██▌.▐█▌▐█•█▌▐█▄▄▌    ▐█▌▐▌▐█▌ ▐█▌·
-·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
+	▄▄▄▄·        ▐ ▄ ·▄▄▄▪  ▄▄▄  ▄▄▄ .    ▄▄▌  ▪  ▄▄▄▄▄
+	▐█ ▀█▪▪     •█▌▐█▐▄▄·██ ▀▄ █·▀▄.▀·    ██•  ██ •██  
+	▐█▀▀█▄ ▄█▀▄ ▐█▐▐▌██▪ ▐█·▐▀▀▄ ▐▀▀▪▄    ██▪  ▐█· ▐█.▪
+	██▄▪▐█▐█▌.▐▌██▐█▌██▌.▐█▌▐█•█▌▐█▄▄▌    ▐█▌▐▌▐█▌ ▐█▌·
+	·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
 
 			""")
 			bonfire1 = True
 		elif player_input == "save" and player_position == platform221 and bonfire1 == True:
+			print("\nPosition saved, and game data saved.")
 			print("\nPosition saved, and game data saved.")
 			bonfire_save = 1
 			with open("darksouls.dat", "wb") as file:
@@ -336,49 +356,62 @@ directions:
 			player_position = platform222
 			print(f"{player_position}")
 		
+		
 		elif player_input == "down" and player_position == platform223:
 			player_position = platform310s
 			print(f"{player_position}")
+		
 		
 		elif player_input == "up" and player_position == platform310s:
 			player_position = platform223
 			print(f"{player_position}")
 		
+		
 		elif player_input == "north" and player_position == platform310s:
 			player_position = platform311
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform311:
 			player_position = platform310s
 			print(f"{player_position}")
 		
+		
 		elif player_input == "east" and player_position == platform311:
 			player_position = platform310
 			print(f"{player_position}")
 		
+		
 		elif player_input == "open" and player_position == platform310 and chest1 not in inventory:
 			print("\nYou open the \x1B[3mchest\x1B[0m and you find a \x1B[3mBlack Iron Sword\x1B[0m")
+			print("\nYou open the \x1B[3mchest\x1B[0m and you find a \x1B[3mBlack Iron Sword\x1B[0m")
 			inventory.append(chest1)
+		
 		
 		elif player_input == "west" and player_position == platform310:
 			player_position = platform311
 			print(f"{player_position}")
 		
+		
 		elif player_input == "west" and player_position == platform311:
 			player_position = platform312
 			print(f"{player_position}")
+		
 		
 		elif player_input == "west" and player_position == platform312:
 			player_position = platform231
 			print(f"{player_position}")
 		
+		
 		elif player_input == "north" and player_position == platform231:
 			player_position = platform232
 			print(f"{player_position}")
 		
+		
 		elif player_input == "east" and player_position == platform312:
 			player_position = platform311
 			print(f"{player_position}")
+		
 		
 		elif player_input == "east" and player_position == platform231:
 			player_position = platform312
@@ -393,16 +426,16 @@ directions:
 			death_count = death_count + 1
 			print("""
 			
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
 			""")
 			if bonfire_save == 1:
 				player_position = platform221
@@ -414,23 +447,32 @@ directions:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
 		
+		
 		elif player_input == "north" and player_position == platform232:
 			player_position = platform233
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform233:
 			player_position = platform232
 			print(f"{player_position}")
 		
+		
 		elif player_input == "south" and player_position == platform232:
 			player_position = platform231
 			print(f"{player_position}")
-		#elevator positioning
+#elevator positioning
 		elif player_input == "pull" and elevator_position == 1 and player_position == platform233:
 			elevator_position = 2
+			print("\nYou pull the lever and the elevator rises in a spiral.")
+		
 		
 		elif player_input == "pull" and elevator_position == 2 and player_position == platform233:
 			elevator_position = 1
+			print("\nYou pull the lever and the elevator lowers in a spiral.")
+		
+		elif player_input == "east" and player_position == platform233 and elevator_position == 1:
+			player_position = platform224p1
 		
 		elif player_input == "east" and player_position == platform233 and elevator_position == 1:
 			player_position = platform224p1
@@ -452,6 +494,7 @@ directions:
 			player_position = platform411p2
 			print(f"{player_position}")
 		
+		
 		elif player_input == "up" and player_position == platform411p2:
 			player_position = platform224p2
 			print(f"{player_position}")
@@ -464,15 +507,21 @@ directions:
 			player_position = platform224p1
 			print(f"{player_position}")
 			#make sure that the player cannot see the fog wall before and can after swinging
+		
 		elif player_input == "north" and player_position == platform411p1 and fakewall == True:
+			print("\nYou can see an arched doorway to the north.")
 			print("\nYou can see an arched doorway to the north.")
 			player_position = platform412
 		
+		
 		elif player_input == "north" and player_position == platform411p1 and fakewall == False:
+			print("\nThe pathway leads to a dead end.")
 			print("\nThe pathway leads to a dead end.")
 			player_position = platform412
 		
+		
 		elif player_input == "south" and player_position == platform412:
+			player_position = platform411p1
 			player_position = platform411p1
 			print(f"{player_position}")
 		
@@ -488,14 +537,15 @@ directions:
 			player_position = platform413
 			print(f"{player_position}")
 		
+		
 		elif player_input == "light" and player_position == platform413 and canLightBonfires == True:
 			print("""
 			
-▄▄▄▄·        ▐ ▄ ·▄▄▄▪  ▄▄▄  ▄▄▄ .    ▄▄▌  ▪  ▄▄▄▄▄
-▐█ ▀█▪▪     •█▌▐█▐▄▄·██ ▀▄ █·▀▄.▀·    ██•  ██ •██  
-▐█▀▀█▄ ▄█▀▄ ▐█▐▐▌██▪ ▐█·▐▀▀▄ ▐▀▀▪▄    ██▪  ▐█· ▐█.▪
-██▄▪▐█▐█▌.▐▌██▐█▌██▌.▐█▌▐█•█▌▐█▄▄▌    ▐█▌▐▌▐█▌ ▐█▌·
-·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
+	▄▄▄▄·        ▐ ▄ ·▄▄▄▪  ▄▄▄  ▄▄▄ .    ▄▄▌  ▪  ▄▄▄▄▄
+	▐█ ▀█▪▪     •█▌▐█▐▄▄·██ ▀▄ █·▀▄.▀·    ██•  ██ •██  
+	▐█▀▀█▄ ▄█▀▄ ▐█▐▐▌██▪ ▐█·▐▀▀▄ ▐▀▀▪▄    ██▪  ▐█· ▐█.▪
+	██▄▪▐█▐█▌.▐▌██▐█▌██▌.▐█▌▐█•█▌▐█▄▄▌    ▐█▌▐▌▐█▌ ▐█▌·
+	·▀▀▀▀  ▀█▄▀▪▀▀ █▪▀▀▀ ▀▀▀.▀  ▀ ▀▀▀     .▀▀▀ ▀▀▀ ▀▀▀ 
 
 			""")
 
@@ -520,9 +570,12 @@ directions:
 			player_position = platform412
 			print("\nYou can see a dark room to the north.")
 		
+			print("\nYou can see a dark room to the north.")
+		
 		elif player_input == "south" and player_position == platform333:
 			player_position = platform323
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform323 and robedguys == False:
 			player_position = platform321
@@ -530,19 +583,20 @@ directions:
 		
 		elif player_input == "south" and player_position == platform323 and robedguys == True:
 			print("\nYou try to get by the soldiers but there are too many and they stab you to death.")
+			print("\nYou try to get by the soldiers but there are too many and they stab you to death.")
 			death_count = death_count + 1
 			print("""
 			
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
 			""")
 			if bonfire_save == 1:
 				player_position = platform221
@@ -554,25 +608,28 @@ directions:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
 		
+		
 		elif player_input == "swing" and player_position == platform323 and chandelierFallen == True:
 			print("\nYou killed enought of the robed soldiers in order to kill the rest.")
 			robedguys = False
 		
+		
 		elif player_input == "swing" and player_position == platform323 and chandelierFallen == False:
+			print("\nYou get overun by robed soldiers and get stabbed to death.")
 			print("\nYou get overun by robed soldiers and get stabbed to death.")
 			death_count = death_count + 1
 			print("""
 			
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
 			""")
 			if bonfire_save == 1:
 				player_position = platform221
@@ -586,16 +643,24 @@ directions:
 
 		elif player_input == "open" and player_position == platform321 and robedguys == False:
 			print(f"\nYou open the chest and find something, but you can't tell what it is.")
+			print(f"\nYou open the chest and find something, but you can't tell what it is.")
 			inventory.append(chest4)
 
 		elif player_input == "north" and player_position == platform321:
 			player_position = platform322
 			print(f"{player_position}")
 
+			player_position = platform323
+			print("\nYou walk to where the chandelier is.")
+		
+		elif player_input == "south" and player_position == platform333 and robedguys == False:
+			player_position == platform323
+			print("\nYou walk to where the chandelier is.")
+		
 		elif player_input == "north" and player_position == platform323:
 			player_position = platform333
-			print(f"{player_position}")
-
+			print("\nThere is the chandelier to the south and an exit to the east.")
+		
 		elif player_input == "south" and player_position == platform224p1:
 			player_position = platform314
 			print(f"{player_position}")
@@ -608,9 +673,12 @@ directions:
 			pathlever = True
 			print("\nYou pull the lever and see a path being extended from your feet to where you were before the marble building.")
 		
+			print("\nYou pull the lever and see a path being extended from your feet to where you were before the marble building.")
+		
 		elif player_input == "south" and player_position == platform314 and pathlever == True:
 			player_position = platform311
 			print(f"{player_position}")
+		
 		
 		elif player_input == "north" and player_position == platform311 and pathlever == True:
 			player_position = platform314
@@ -628,13 +696,16 @@ directions:
 			player_position = platform225
 			print(f"{player_position}")
 		
+		
 		elif player_input == "south" and player_position == platform225 and elevator_position == 2:
-			player_position = platform411p2
+			player_position = platform224p2
 			print(f"{player_position}")
+		
 		
 		elif player_input == "south" and player_position == platform121:
 			player_position = platform225
 			print(f"{player_position}")
+		
 		
 		elif player_input == "pull" and player_position == platform225 and elevator_position == 2:
 			print("\nYou pull the lever and the elevator drops.")
@@ -682,61 +753,21 @@ directions:
 			BK4 == False
 			BK5 == False
 		
-		elif player_input == "north" and player_position == platform121:
-			player_position = platform122
-			print(f"{player_position}")
-		
-		elif player_input == "south" and player_position == platform122:
-			player_position = platform121
-			print(f"{player_position}")
-		
-		elif player_input == "west" and player_position == platform122:
-			player_position = platform021
-			print(f"{player_position}")
-		
-		elif player_input == "east" and player_position == platform122:
-			player_position = platform021
-			print(f"{player_position}")
-		
-		elif player_input == "west" and player_position == platform021:
-			player_position = platform121
-			print(f"{player_position}")
-		
-		elif player_input == "east" and player_position == platform021:
-			player_position = platform122
-			print(f"{player_position}")
-		
-		elif player_input == "south" and player_position == platform021:
-			player_position = platform020
-			print(f"{player_position}")
-		
-		elif player_input == "open" and player_position == platform020:
-			print("\nYou open the chest and find Fine Iron Armor")
-			inventory.append(chest3)
-		
-		elif player_input == "north" and player_position == platform020:
-			player_position = platform021
-			print(f"{player_position}")
-		
-		elif player_input == "north" and player_position == platform122:
-			player_position = platform123
-			print(f"{player_position}")
-		
-		elif player_input == "south" and player_position == platform123 and bosses == True:
-			print("\nYou try to go south but there is now a fog wall covering the way. While trying to exit you get crushed by Ornstein")
+		elif player_input == "swing" and player_position == platform121 and chest1 not in inventory and BK4 == True and BK5 == True:
+			print("\nYou go to swing but your sword is not strong enough and the two knights overpower you.")
 			death_count = death_count + 1
 			print("""
 			
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
 			""")
 			if bonfire_save == 1:
 				player_position = platform221
@@ -748,36 +779,139 @@ directions:
 				player_position = platform111
 				print("You wake up on the platform of complex tiles.")
 		
+
+		elif player_input == "north" and player_position == platform121:
+			player_position = platform122
+			print(f"{player_position}")
+		
+		elif player_input == "north" and player_position == platform225 and BK4 == False and BK5 == False:
+			player_position = platform121
+			print("\nYou walk up the stairs and see the cathedral entrance, there is a path to the south.")
+
+		elif player_input == "south" and player_position == platform122 and BK4 == False and BK5 == False:
+			player_position == platform121
+			print("\nThere is the entrance to the cathedral to the north and a path to the south")
+
+		elif player_input == "south" and player_position == platform122:
+			player_position = platform121
+			print(f"{player_position}")
+		
+		elif player_input == "west" and player_position == platform122:
+		
+		elif player_input == "west" and player_position == platform122:
+			player_position = platform021
+			print(f"{player_position}")
+		
+		elif player_input == "east" and player_position == platform122:
+		
+		elif player_input == "east" and player_position == platform122:
+			player_position = platform021
+			print(f"{player_position}")
+		
+		
+		elif player_input == "west" and player_position == platform021:
+			player_position = platform122
+			print(f"{player_position}")
+		
+		
+		elif player_input == "east" and player_position == platform021:
+			player_position = platform122
+			player_position = platform122
+			print(f"{player_position}")
+		
+		
+		elif player_input == "south" and player_position == platform021:
+			player_position = platform020
+			print(f"{player_position}")
+		
+		
+		elif player_input == "open" and player_position == platform020:
+			print("\nYou open the chest and find Fine Iron Armor")
+			print("\nYou open the chest and find Fine Iron Armor")
+			inventory.append(chest3)
+		
+		
+		elif player_input == "north" and player_position == platform020:
+			player_position = platform021
+			print(f"{player_position}")
+		
+		elif player_input == "north" and player_position == platform122:
+			player_position = platform123
+		
+		elif player_input == "north" and player_position == platform122:
+			player_position = platform123
+			print(f"{player_position}")
+		
+		elif player_input == "south" and player_position == platform123 and bosses == True:
+			print("\nYou try to go south but there is now a fog wall covering the way. While trying to exit you get crushed by Ornstein")
+		
+		elif player_input == "south" and player_position == platform123 and bosses == True:
+			print("\nYou try to go south but there is now a fog wall covering the way. While trying to exit you get crushed by Ornstein")
+			death_count = death_count + 1
+			print("""
+			
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
+			""")
+			if bonfire_save == 1:
+				player_position = platform221
+				print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m")
+			elif bonfire_save == 2:
+				player_position = platform413
+				print("You wake up in the dark room with the bonfire.")
+			else:
+				player_position = platform111
+				print("You wake up on the platform of complex tiles.")
+		
 		elif player_input == "swing" and player_position == platform123 and chest1 in inventory and chest2 in inventory and chest3 in inventory:
 			print("\nYou swing at the crumbling column and it falls and crushes Smough, you swing for a second time and kill Ornstein")
 			bosses = False
 		
 		elif player_input == "swing" and player_position == platform123:
+		
+		elif player_input == "swing" and player_position == platform123:
 			if chest1 not in inventory or chest2 not in inventory or chest3 not in inventory:
-				print("You go to swing at Ornstein and Smough but you were not prepared enough to meet them.")
+				print("\nYou go to swing at Ornstein and Smough but you were not prepared enough to meet them.")
 				death_count = death_count + 1
 				print("""
 			
-▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
-  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
-   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
- ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
- ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
- ░ ░                           ░                  ░      
+	▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+	▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+	▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+	░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+	░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+	██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+	▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+	▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+	░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+	░ ░                           ░                  ░      
 				""")
 				if bonfire_save == 1:
 					player_position = platform221
 					print("You wake up in the room with the \x1B[3mFirebearer\x1B[0m")
 				elif bonfire_save == 2:
-					player_position == platform413
+					player_position = platform413
 					print("You wake up in the dark room with the bonfire.")
 				else:
 					player_position = platform111
 					print("You wake up on the platform of complex tiles.")
+		
+		elif player_input == "north" and player_position == platform123 and bosses == False:
+			player_position = platform124
+			print(f"{player_position}")
+		
+		elif player_input == "south" and player_position == platform124 and bosses == False:
+			player_position = platform123
+			print("\nYou are standing in a broken battlefield.")
+		
 		
 		elif player_input == "north" and player_position == platform123 and bosses == False:
 			player_position = platform124
@@ -804,33 +938,33 @@ directions:
 				ending1 = True
 				ending = True
 		
+		
 		elif player_input == "inventory":
 			print(inventory)
-#printing out ending.
-		else:
-			if ending == True:
+		
+		elif ending == True:
 				print("""
 				
- ▄████▄   ▒█████   ███▄    █   ▄████  ██▀███   ▄▄▄     ▄▄▄█████▓ █    ██  ██▓    ▄▄▄     ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████    ▓██   ██▓ ▒█████   █    ██     ▄▄▄▄   ▓█████ ▄▄▄     ▄▄▄█████▓
-▒██▀ ▀█  ▒██▒  ██▒ ██ ▀█   █  ██▒ ▀█▒▓██ ▒ ██▒▒████▄   ▓  ██▒ ▓▒ ██  ▓██▒▓██▒   ▒████▄   ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒     ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▓█████▄ ▓█   ▀▒████▄   ▓  ██▒ ▓▒
-▒▓█    ▄ ▒██░  ██▒▓██  ▀█ ██▒▒██░▄▄▄░▓██ ░▄█ ▒▒██  ▀█▄ ▒ ▓██░ ▒░▓██  ▒██░▒██░   ▒██  ▀█▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄        ▒██ ██░▒██░  ██▒▓██  ▒██░   ▒██▒ ▄██▒███  ▒██  ▀█▄ ▒ ▓██░ ▒░
-▒▓▓▄ ▄██▒▒██   ██░▓██▒  ▐▌██▒░▓█  ██▓▒██▀▀█▄  ░██▄▄▄▄██░ ▓██▓ ░ ▓▓█  ░██░▒██░   ░██▄▄▄▄██░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒     ░ ▐██▓░▒██   ██░▓▓█  ░██░   ▒██░█▀  ▒▓█  ▄░██▄▄▄▄██░ ▓██▓ ░ 
-▒ ▓███▀ ░░ ████▓▒░▒██░   ▓██░░▒▓███▀▒░██▓ ▒██▒ ▓█   ▓██▒ ▒██▒ ░ ▒▒█████▓ ░██████▒▓█   ▓██▒ ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒     ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▓█  ▀█▓░▒████▒▓█   ▓██▒ ▒██▒ ░ 
-░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒  ░▒   ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░ ▒ ░░   ░▒▓▒ ▒ ▒ ░ ▒░▓  ░▒▒   ▓▒█░ ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░      ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒    ░▒▓███▀▒░░ ▒░ ░▒▒   ▓▒█░ ▒ ░░   
-  ░  ▒     ░ ▒ ▒░ ░ ░░   ░ ▒░  ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░   ░    ░░▒░ ░ ░ ░ ░ ▒  ░ ▒   ▒▒ ░   ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░    ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░    ▒░▒   ░  ░ ░  ░ ▒   ▒▒ ░   ░    
-░        ░ ░ ░ ▒     ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒    ░       ░░░ ░ ░   ░ ░    ░   ▒    ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░      ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░    ░    ░    ░   ▒    ░      
-░ ░          ░ ░           ░       ░    ░           ░  ░           ░         ░  ░     ░  ░         ░      ░ ░           ░       ░      ░ ░         ░ ░     ░         ░         ░  ░     ░  ░        
-░                                                                                                                                      ░ ░                                ░                         
-▓█████▄  ▄▄▄       ██▀███   ██ ▄█▀     ██████  ▒█████   █    ██  ██▓      ██████    ▄▄▄█████▓▓█████ ▒██   ██▒▄▄▄█████▓   ▓█████ ▓█████▄  ██▓▄▄▄█████▓ ██▓ ▒█████   ███▄    █                        
-▒██▀ ██▌▒████▄    ▓██ ▒ ██▒ ██▄█▒    ▒██    ▒ ▒██▒  ██▒ ██  ▓██▒▓██▒    ▒██    ▒    ▓  ██▒ ▓▒▓█   ▀ ▒▒ █ █ ▒░▓  ██▒ ▓▒   ▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █                        
-░██   █▌▒██  ▀█▄  ▓██ ░▄█ ▒▓███▄░    ░ ▓██▄   ▒██░  ██▒▓██  ▒██░▒██░    ░ ▓██▄      ▒ ▓██░ ▒░▒███   ░░  █   ░▒ ▓██░ ▒░   ▒███   ░██   █▌▒██▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒                       
-░▓█▄   ▌░██▄▄▄▄██ ▒██▀▀█▄  ▓██ █▄      ▒   ██▒▒██   ██░▓▓█  ░██░▒██░      ▒   ██▒   ░ ▓██▓ ░ ▒▓█  ▄  ░ █ █ ▒ ░ ▓██▓ ░    ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒                       
-░▒████▓  ▓█   ▓██▒░██▓ ▒██▒▒██▒ █▄   ▒██████▒▒░ ████▓▒░▒▒█████▓ ░██████▒▒██████▒▒     ▒██▒ ░ ░▒████▒▒██▒ ▒██▒  ▒██▒ ░    ░▒████▒░▒████▓ ░██░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░                       
- ▒▒▓  ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░▒ ▒▒ ▓▒   ▒ ▒▓▒ ▒ ░░ ▒░▒░▒░ ░▒▓▒ ▒ ▒ ░ ▒░▓  ░▒ ▒▓▒ ▒ ░     ▒ ░░   ░░ ▒░ ░▒▒ ░ ░▓ ░  ▒ ░░      ░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒                        
- ░ ▒  ▒   ▒   ▒▒ ░  ░▒ ░ ▒░░ ░▒ ▒░   ░ ░▒  ░ ░  ░ ▒ ▒░ ░░▒░ ░ ░ ░ ░ ▒  ░░ ░▒  ░ ░       ░     ░ ░  ░░░   ░▒ ░    ░        ░ ░  ░ ░ ▒  ▒  ▒ ░    ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░                       
- ░ ░  ░   ░   ▒     ░░   ░ ░ ░░ ░    ░  ░  ░  ░ ░ ░ ▒   ░░░ ░ ░   ░ ░   ░  ░  ░       ░         ░    ░    ░    ░            ░    ░ ░  ░  ▒ ░  ░       ▒ ░░ ░ ░ ▒     ░   ░ ░                        
-   ░          ░  ░   ░     ░  ░            ░      ░ ░     ░         ░  ░      ░                 ░  ░ ░    ░                 ░  ░   ░     ░            ░      ░ ░           ░                        
- ░                                                                                                                               ░                                                                  
+	▄████▄   ▒█████   ███▄    █   ▄████  ██▀███   ▄▄▄     ▄▄▄█████▓ █    ██  ██▓    ▄▄▄     ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████    ▓██   ██▓ ▒█████   █    ██     ▄▄▄▄   ▓█████ ▄▄▄     ▄▄▄█████▓
+	▒██▀ ▀█  ▒██▒  ██▒ ██ ▀█   █  ██▒ ▀█▒▓██ ▒ ██▒▒████▄   ▓  ██▒ ▓▒ ██  ▓██▒▓██▒   ▒████▄   ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒     ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▓█████▄ ▓█   ▀▒████▄   ▓  ██▒ ▓▒
+	▒▓█    ▄ ▒██░  ██▒▓██  ▀█ ██▒▒██░▄▄▄░▓██ ░▄█ ▒▒██  ▀█▄ ▒ ▓██░ ▒░▓██  ▒██░▒██░   ▒██  ▀█▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄        ▒██ ██░▒██░  ██▒▓██  ▒██░   ▒██▒ ▄██▒███  ▒██  ▀█▄ ▒ ▓██░ ▒░
+	▒▓▓▄ ▄██▒▒██   ██░▓██▒  ▐▌██▒░▓█  ██▓▒██▀▀█▄  ░██▄▄▄▄██░ ▓██▓ ░ ▓▓█  ░██░▒██░   ░██▄▄▄▄██░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒     ░ ▐██▓░▒██   ██░▓▓█  ░██░   ▒██░█▀  ▒▓█  ▄░██▄▄▄▄██░ ▓██▓ ░ 
+	▒ ▓███▀ ░░ ████▓▒░▒██░   ▓██░░▒▓███▀▒░██▓ ▒██▒ ▓█   ▓██▒ ▒██▒ ░ ▒▒█████▓ ░██████▒▓█   ▓██▒ ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒     ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▓█  ▀█▓░▒████▒▓█   ▓██▒ ▒██▒ ░ 
+	░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒  ░▒   ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░ ▒ ░░   ░▒▓▒ ▒ ▒ ░ ▒░▓  ░▒▒   ▓▒█░ ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░      ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒    ░▒▓███▀▒░░ ▒░ ░▒▒   ▓▒█░ ▒ ░░   
+	░  ▒     ░ ▒ ▒░ ░ ░░   ░ ▒░  ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░   ░    ░░▒░ ░ ░ ░ ░ ▒  ░ ▒   ▒▒ ░   ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░    ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░    ▒░▒   ░  ░ ░  ░ ▒   ▒▒ ░   ░    
+	░        ░ ░ ░ ▒     ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒    ░       ░░░ ░ ░   ░ ░    ░   ▒    ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░      ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░    ░    ░    ░   ▒    ░      
+	░ ░          ░ ░           ░       ░    ░           ░  ░           ░         ░  ░     ░  ░         ░      ░ ░           ░       ░      ░ ░         ░ ░     ░         ░         ░  ░     ░  ░        
+	░                                                                                                                                      ░ ░                                ░                         
+	▓█████▄  ▄▄▄       ██▀███   ██ ▄█▀     ██████  ▒█████   █    ██  ██▓      ██████    ▄▄▄█████▓▓█████ ▒██   ██▒▄▄▄█████▓   ▓█████ ▓█████▄  ██▓▄▄▄█████▓ ██▓ ▒█████   ███▄    █                        
+	▒██▀ ██▌▒████▄    ▓██ ▒ ██▒ ██▄█▒    ▒██    ▒ ▒██▒  ██▒ ██  ▓██▒▓██▒    ▒██    ▒    ▓  ██▒ ▓▒▓█   ▀ ▒▒ █ █ ▒░▓  ██▒ ▓▒   ▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █                        
+	░██   █▌▒██  ▀█▄  ▓██ ░▄█ ▒▓███▄░    ░ ▓██▄   ▒██░  ██▒▓██  ▒██░▒██░    ░ ▓██▄      ▒ ▓██░ ▒░▒███   ░░  █   ░▒ ▓██░ ▒░   ▒███   ░██   █▌▒██▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒                       
+	░▓█▄   ▌░██▄▄▄▄██ ▒██▀▀█▄  ▓██ █▄      ▒   ██▒▒██   ██░▓▓█  ░██░▒██░      ▒   ██▒   ░ ▓██▓ ░ ▒▓█  ▄  ░ █ █ ▒ ░ ▓██▓ ░    ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒                       
+	░▒████▓  ▓█   ▓██▒░██▓ ▒██▒▒██▒ █▄   ▒██████▒▒░ ████▓▒░▒▒█████▓ ░██████▒▒██████▒▒     ▒██▒ ░ ░▒████▒▒██▒ ▒██▒  ▒██▒ ░    ░▒████▒░▒████▓ ░██░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░                       
+	▒▒▓  ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░▒ ▒▒ ▓▒   ▒ ▒▓▒ ▒ ░░ ▒░▒░▒░ ░▒▓▒ ▒ ▒ ░ ▒░▓  ░▒ ▒▓▒ ▒ ░     ▒ ░░   ░░ ▒░ ░▒▒ ░ ░▓ ░  ▒ ░░      ░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒                        
+	░ ▒  ▒   ▒   ▒▒ ░  ░▒ ░ ▒░░ ░▒ ▒░   ░ ░▒  ░ ░  ░ ▒ ▒░ ░░▒░ ░ ░ ░ ░ ▒  ░░ ░▒  ░ ░       ░     ░ ░  ░░░   ░▒ ░    ░        ░ ░  ░ ░ ▒  ▒  ▒ ░    ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░                       
+	░ ░  ░   ░   ▒     ░░   ░ ░ ░░ ░    ░  ░  ░  ░ ░ ░ ▒   ░░░ ░ ░   ░ ░   ░  ░  ░       ░         ░    ░    ░    ░            ░    ░ ░  ░  ▒ ░  ░       ▒ ░░ ░ ░ ▒     ░   ░ ░                        
+	░          ░  ░   ░     ░  ░            ░      ░ ░     ░         ░  ░      ░                 ░  ░ ░    ░                 ░  ░   ░     ░            ░      ░ ░           ░                        
+	░                                                                                                                               ░                                                                  
 
 				""")
 				if ending1 == True:
@@ -856,7 +990,7 @@ directions:
 				chandelierFallen = False
 				fakewall = False
 				firstspawn = True
-				pathlever
+				pathlever = False
 				BK1 = True
 				BK2 = True
 				BK3 = True
